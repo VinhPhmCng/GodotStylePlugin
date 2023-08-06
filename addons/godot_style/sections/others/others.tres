@@ -1,11 +1,9 @@
-[gd_resource type="Resource" script_class="SectionResource" load_steps=5 format=3 uid="uid://godr2s6lryni"]
+[gd_resource type="Resource" script_class="SectionResource" load_steps=3 format=3 uid="uid://godr2s6lryni"]
 
-[ext_resource type="Resource" uid="uid://2v2lnl5ptw84" path="res://addons/godot_style/sections/style_guide/items/enums.tres" id="1_3pbar"]
 [ext_resource type="Script" path="res://addons/godot_style/section_resource.gd" id="1_fula7"]
-[ext_resource type="Resource" uid="uid://b3kkqgjt3bw2i" path="res://addons/godot_style/sections/style_guide/items/onready_variables.tres" id="2_ft5tq"]
-[ext_resource type="Resource" uid="uid://cnegbix2y6ftg" path="res://addons/godot_style/sections/style_guide/items/signals.tres" id="3_f5b37"]
+[ext_resource type="Resource" uid="uid://c6l0wlv6up681" path="res://addons/godot_style/sections/others/items/adding_your_own.tres" id="1_nyeiy"]
 
 [resource]
 script = ExtResource("1_fula7")
 name = "Others"
-items = Array[Resource("res://addons/godot_style/item_resource.gd")]([ExtResource("1_3pbar"), ExtResource("2_ft5tq"), ExtResource("3_f5b37")])
+items = Array[Resource("res://addons/godot_style/item_resource.gd")]([ExtResource("1_nyeiy")])

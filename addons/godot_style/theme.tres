@@ -11,6 +11,7 @@ bg_color = Color(0.0509804, 0.0666667, 0.0901961, 1)
 
 [resource]
 LabelGray/base_type = &"Label"
+LabelGray/colors/font_color = Color(1, 1, 1, 1)
 LabelGray/font_sizes/font_size = 20
 LabelGray/styles/normal = SubResource("StyleBoxFlat_ax6uq")
 Panel/styles/panel = SubResource("StyleBoxFlat_u83nk")
