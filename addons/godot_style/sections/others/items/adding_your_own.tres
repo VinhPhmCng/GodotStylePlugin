@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=2 format=3 uid="uid://c6l0wlv6up681"]
+
+[ext_resource type="Script" path="res://addons/godot_style/item_resource.gd" id="1_k0n4x"]
+
+[resource]
+script = ExtResource("1_k0n4x")
+name = "Name"
+pictures = Array[Texture2D]([])

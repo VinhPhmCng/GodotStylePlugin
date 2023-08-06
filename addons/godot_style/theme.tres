@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bnprm4dgmteqb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ax6uq"]
+bg_color = Color(0.25098, 0.266667, 0.298039, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u83nk"]
+bg_color = Color(0.0509804, 0.0666667, 0.0901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aipcg"]
+bg_color = Color(0.0509804, 0.0666667, 0.0901961, 1)
+
+[resource]
+LabelGray/base_type = &"Label"
+LabelGray/font_sizes/font_size = 20
+LabelGray/styles/normal = SubResource("StyleBoxFlat_ax6uq")
+Panel/styles/panel = SubResource("StyleBoxFlat_u83nk")
+Tree/styles/panel = SubResource("StyleBoxFlat_aipcg")

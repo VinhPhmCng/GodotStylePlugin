@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://2v2lnl5ptw84"]
+
+[ext_resource type="Texture2D" uid="uid://bwbcjpdy6r55" path="res://addons/godot_style/sections/style_guide/pictures/enums_1.PNG" id="1_5ukbf"]
+[ext_resource type="Script" path="res://addons/godot_style/item_resource.gd" id="1_dw5hp"]
+
+[resource]
+script = ExtResource("1_dw5hp")
+name = "Enums"
+pictures = Array[Texture2D]([ExtResource("1_5ukbf")])

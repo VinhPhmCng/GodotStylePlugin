@@ -1,8 +1,7 @@
 # Godot style guide
 
 
-This is an unofficial style guide for [Godot](https://godotengine.org) - a free,
-libre and open-source game engine.
+This is an unofficial style guide for [Godot](https://godotengine.org) - a free, libre and open-source game engine.
 
 
 ## Common naming conventions
@@ -79,10 +78,10 @@ enum {TILE_BRICK, TILE_FLOOR, TILE_CEILING,}
 
 # Named enum
 enum State {
-    IDLE,
-    WALK,
-    RUN,
-    JUMP,
+	IDLE,
+	WALK,
+	RUN,
+	JUMP,
 }
 ```
 
@@ -119,7 +118,7 @@ var another_name: String = "Mike"
 
 ```gdscript
 func do_something(parameter: int) -> void:
-    return
+	return
 ```
 
 
@@ -135,7 +134,7 @@ var another_name: String = "Mike"
 
 ```gdscript
 func _do_something_exclusive(parameter: int) -> void:
-    return
+	return
 ```
 
 
@@ -148,26 +147,33 @@ func _do_something_exclusive(parameter: int) -> void:
 ```
 
 
-# Others
+# Other good practices
 
-## Comments
-
-- Begin comments with an uppercase letter, unless you are referencing a function
-  or a variable. Do not end them with a period, unless the comment has several
-  sentences.
-
-- Comments should have a space after the `#` symbol, and should be indented as
-  usual.
-
-Example:
-
+## Booleans
+- Prepend `is_`, `can_`, `has_`, etc.
 ```gdscript
-# Outputs "Hello world!" to console
-print("Hello world!")
+var is_falling := false
+var can_double_jump := true
+var _has_weapon: bool
 ```
 
 
-## Booleans
+## Signal callbacks
+- Godot's convention: `_on_SignalEmittingNode_signal_name`
+```gdscript
+func _on_Transition_started(which: Animation) -> void:
+	return
+```
+
+- Remove `SignalEmittingNode` if the object connects to itself
+```gdscript
+class_name HitBox
+extends Area2D
+
+func _ready() -> void:
+	area_entered.connect(_on_area_entered)
+	return
+```
 
 
 # Resources

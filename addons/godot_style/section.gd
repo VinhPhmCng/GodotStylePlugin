@@ -1,6 +1,6 @@
 @tool
 #class_name
-extends Control
+extends VBoxContainer
 
 # docstring
 
@@ -23,21 +23,19 @@ extends Control
 #__________________ CONSTANTS __________________#
 #################################################
 
-const SectionUI := preload("res://addons/godot_style/section.tscn")
 
 
 #################################################
 #______________ EXPORTED VARIABLES _____________#
 #################################################
 
-@export var sections: Array[SectionResource]
 
 
 #################################################
 #_______________ PUBLIC VARIABLES ______________#
 #################################################
 
-
+var root: TreeItem
 
 
 #################################################
@@ -51,7 +49,8 @@ const SectionUI := preload("res://addons/godot_style/section.tscn")
 #______________ ONREADY VARIABLES ______________#
 #################################################
 
-@onready var sections_container: VBoxContainer = $HBoxContainer/NavigationTrees/SectionsContainer
+@onready var name_label: Label = $Name
+@onready var tree: Tree = $Tree
 
 
 
@@ -70,27 +69,9 @@ const SectionUI := preload("res://addons/godot_style/section.tscn")
 #################################################
 
 func _ready() -> void:
-	# Adding sections to container
-	for section in sections:
-		var section_ui := SectionUI.instantiate()
-		sections_container.add_child(section_ui)
-		
-		section_ui.tree.item_selected.connect(
-			_on_SectionUI_Tree_item_selected.bind(section_ui.tree)
-		)
-		
-		section_ui.tree.add_to_group("trees")
-		
-		section_ui.display(section)
-		
-	# Selecting the first item
-	var first_section_ui := sections_container.get_child(0)
-	first_section_ui.tree.set_selected(
-		first_section_ui.tree.get_root().get_first_child(),
-		0
-	)
+	root = tree.create_item()
+	tree.hide_root = true
 	return
-
 
 
 #################################################
@@ -104,42 +85,41 @@ func _ready() -> void:
 #________________ PUBLIC METHODS _______________#
 #################################################
 
-
+func display(res: SectionResource) -> void:
+	name_label.text = res.name
+	
+	var items: Array[ItemResource] = res.items # For auto-completion
+	for item in items:
+		var tree_item := tree.create_item(root)
+		tree_item.set_text(0, item.name)
+		tree_item.set_metadata(0, item)
+	
+	_update_Tree_minimum_size()
+	return
 
 
 #################################################
 #________________ PRIVATE METHODS ______________#
 #################################################
 
-func _on_SectionUI_Tree_item_selected(tree: Tree) -> void:
-	var selected_tree_item: TreeItem = tree.get_selected()
-	var item: ItemResource = selected_tree_item.get_metadata(0)
+func _update_Tree_minimum_size() -> void:
+	var item_area_rect := tree.get_item_area_rect(
+		root.get_first_child()
+	)
 	
-	# De-selecting other trees
-	for tr in get_tree().get_nodes_in_group("trees"):
-		if tr == tree:
-			continue
-		tr.deselect_all()
+#	print(root.get_first_child().get_text(0))
+#	print(root.get_child_count())
+#	print(tree.get_theme_constant("v_seperation"))
 	
-	# Item name
-	%ItemName.text = item.name
+	var new_custom_height: float = 0
+	new_custom_height += item_area_rect.size.y
+	new_custom_height += 4.0
+	new_custom_height *= root.get_child_count()
 	
-	# Deleting existing pictures
-	for child in %Pictures.get_children():
-		%Pictures.remove_child(child)
-		child.queue_free()
-		
-	# Adding new pictures of selected item
-	for picture in item.pictures:
-		var texture_rect := TextureRect.new()
-		texture_rect.expand_mode = TextureRect.EXPAND_KEEP_SIZE
-		texture_rect.stretch_mode = TextureRect.STRETCH_KEEP
-		texture_rect.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		texture_rect.size_flags_vertical = Control.SIZE_EXPAND_FILL
-		
-		texture_rect.texture = picture
-		%Pictures.add_child(texture_rect)
-	
+	tree.set_custom_minimum_size(Vector2(
+		0,
+		new_custom_height
+	))
 	return
 
 
@@ -151,8 +131,11 @@ func _on_SectionUI_Tree_item_selected(tree: Tree) -> void:
 #__________________ INTERNAL ___________________#
 #_______________________________________________#
 
+
+
 #_______________________________________________#
 #__________________ EXTERNAL ___________________#
 #_______________________________________________#
+
 
 

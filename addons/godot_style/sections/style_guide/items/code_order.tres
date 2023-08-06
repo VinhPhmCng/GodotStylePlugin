@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://b663w5uvkwbr2"]
+
+[ext_resource type="Texture2D" uid="uid://cyw67kbrk0re7" path="res://addons/godot_style/sections/style_guide/pictures/code_order_1.PNG" id="1_y0w8y"]
+[ext_resource type="Script" path="res://addons/godot_style/item_resource.gd" id="1_ynptl"]
+
+[resource]
+script = ExtResource("1_ynptl")
+name = "Code Order"
+pictures = Array[Texture2D]([ExtResource("1_y0w8y")])

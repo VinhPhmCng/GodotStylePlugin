@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://0orrjs7ihj5b"]
+
+[ext_resource type="Script" path="res://addons/godot_style/item_resource.gd" id="1_2tnct"]
+[ext_resource type="Texture2D" uid="uid://oop721j28hew" path="res://addons/godot_style/sections/style_guide/pictures/exported_variables_1.PNG" id="1_03bay"]
+
+[resource]
+script = ExtResource("1_2tnct")
+name = "Exported variables"
+pictures = Array[Texture2D]([ExtResource("1_03bay")])

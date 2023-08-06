@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://et0tdt8vkhll"]
+
+[ext_resource type="Texture2D" uid="uid://cmoeehaxyyk43" path="res://addons/godot_style/sections/style_guide/pictures/public_variables_and_functions_1.PNG" id="1_pvdm7"]
+[ext_resource type="Script" path="res://addons/godot_style/item_resource.gd" id="1_yyj0p"]
+
+[resource]
+script = ExtResource("1_yyj0p")
+name = "Public variables / functions"
+pictures = Array[Texture2D]([ExtResource("1_pvdm7")])

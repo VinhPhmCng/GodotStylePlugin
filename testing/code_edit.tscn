@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://l66h5rkg7hbh"]
+
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_rj1us"]
+number_color = Color(0, 0.823529, 0.384314, 1)
+symbol_color = Color(1, 1, 1, 1)
+function_color = Color(0.458824, 0.631373, 1, 1)
+member_variable_color = Color(0.831373, 0.0941176, 0, 1)
+keyword_colors = {
+"return": Color(1, 0, 0, 1),
+"void": Color(0.945098, 0, 0, 1)
+}
+
+[node name="CodeEdit" type="CodeEdit"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "func testing() -> void
+	var variable: int = 0
+	return"
+syntax_highlighter = SubResource("CodeHighlighter_rj1us")
+code_completion_enabled = true
