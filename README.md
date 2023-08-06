@@ -57,8 +57,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+![Godot Style Screenshot 1](pictures/screenshot_1.PNG)
 
+![Godot Style Screenshot 2](pictures/screenshot_2.PNG)
 
 
 ### Built With
