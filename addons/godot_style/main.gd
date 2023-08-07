@@ -2,88 +2,32 @@
 #class_name
 extends Control
 
-# docstring
+## Main UI of the addon
 
-
-#################################################
-#___________________ SIGNALS ___________________#
-#################################################
-
-
-
-
-#################################################
-#____________________ ENUMS ____________________#
-#################################################
-
-
-
-
-#################################################
-#__________________ CONSTANTS __________________#
-#################################################
-
+## Preloading section.tscn into a PackedScene ready to be instantiated
 const SectionUI := preload("res://addons/godot_style/section.tscn")
 
-
-#################################################
-#______________ EXPORTED VARIABLES _____________#
-#################################################
-
+## Sections of type SectionResource to be displayed
 @export var sections: Array[SectionResource]
-
-
-#################################################
-#_______________ PUBLIC VARIABLES ______________#
-#################################################
-
-
-
-
-#################################################
-#_______________ PRIVATE VARIABLES _____________#
-#################################################
-
-
-
-
-#################################################
-#______________ ONREADY VARIABLES ______________#
-#################################################
 
 @onready var sections_container: VBoxContainer = $HBoxContainer/NavigationTrees/SectionsContainer
 
-
-
-#################################################
-#___________________ _init() ___________________#
-#################################################
-
-
-#################################################
-#________________ _enter_tree() ________________#
-#################################################
-
-
-#################################################
-#___________________ _ready() __________________#
-#################################################
 
 func _ready() -> void:
 	# Adding sections to container
 	for section in sections:
 		var section_ui := SectionUI.instantiate()
-		sections_container.add_child(section_ui)
+		sections_container.add_child(section_ui) ## Ensuring tree is ready
 		
 		section_ui.tree.item_selected.connect(
 			_on_SectionUI_Tree_item_selected.bind(section_ui.tree)
+			# Pass in the corresponding Tree to have access to the correct selected item
 		)
 		
 		section_ui.tree.add_to_group("trees")
-		
 		section_ui.display(section)
 		
-	# Selecting the first item
+	# Selecting the first item in first run
 	var first_section_ui := sections_container.get_child(0)
 	first_section_ui.tree.set_selected(
 		first_section_ui.tree.get_root().get_first_child(),
@@ -92,36 +36,16 @@ func _ready() -> void:
 	return
 
 
-
-#################################################
-#_______________ VIRTUAL METHODS _______________#
-#################################################
-
-
-
-
-#################################################
-#________________ PUBLIC METHODS _______________#
-#################################################
-
-
-
-
-#################################################
-#________________ PRIVATE METHODS ______________#
-#################################################
-
 func _on_SectionUI_Tree_item_selected(tree: Tree) -> void:
 	var selected_tree_item: TreeItem = tree.get_selected()
-	var item: ItemResource = selected_tree_item.get_metadata(0)
+	var item: ItemResource = selected_tree_item.get_metadata(0) # This was set in the display() function
 	
-	# De-selecting other trees
+	# De-selecting items in other trees
 	for tr in get_tree().get_nodes_in_group("trees"):
 		if tr == tree:
 			continue
 		tr.deselect_all()
 	
-	# Item name
 	%ItemName.text = item.name
 	
 	# Deleting existing pictures
@@ -139,20 +63,4 @@ func _on_SectionUI_Tree_item_selected(tree: Tree) -> void:
 		
 		texture_rect.texture = picture
 		%Pictures.add_child(texture_rect)
-	
 	return
-
-
-#################################################
-#_______________ SIGNAL CALLBACKS ______________#
-#################################################
-
-#_______________________________________________#
-#__________________ INTERNAL ___________________#
-#_______________________________________________#
-
-#_______________________________________________#
-#__________________ EXTERNAL ___________________#
-#_______________________________________________#
-
-

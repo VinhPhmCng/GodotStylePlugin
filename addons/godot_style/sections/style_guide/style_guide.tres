@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="SectionResource" load_steps=11 format=3 uid="uid://b43vjrfxhw1xh"]
+[gd_resource type="Resource" script_class="SectionResource" load_steps=12 format=3 uid="uid://b43vjrfxhw1xh"]
 
 [ext_resource type="Script" path="res://addons/godot_style/section_resource.gd" id="1_46tem"]
 [ext_resource type="Resource" uid="uid://b663w5uvkwbr2" path="res://addons/godot_style/sections/style_guide/items/code_order.tres" id="1_b18q4"]
+[ext_resource type="Resource" uid="uid://blsbbtfbk4lfn" path="res://addons/godot_style/sections/style_guide/items/common_naming_conventions.tres" id="1_frhpv"]
 [ext_resource type="Resource" uid="uid://cgv751s0iwjf" path="res://addons/godot_style/sections/style_guide/items/class_name.tres" id="2_rvr58"]
 [ext_resource type="Resource" uid="uid://cnegbix2y6ftg" path="res://addons/godot_style/sections/style_guide/items/signals.tres" id="3_koqkv"]
 [ext_resource type="Resource" uid="uid://2v2lnl5ptw84" path="res://addons/godot_style/sections/style_guide/items/enums.tres" id="4_uqaf8"]
@@ -14,4 +15,4 @@
 [resource]
 script = ExtResource("1_46tem")
 name = "Style Guide"
-items = Array[Resource("res://addons/godot_style/item_resource.gd")]([ExtResource("1_b18q4"), ExtResource("2_rvr58"), ExtResource("3_koqkv"), ExtResource("4_uqaf8"), ExtResource("5_da0oi"), ExtResource("6_4yv0w"), ExtResource("7_3lpa5"), ExtResource("8_0d685"), ExtResource("9_ougtq")])
+items = Array[Resource("res://addons/godot_style/item_resource.gd")]([ExtResource("1_frhpv"), ExtResource("1_b18q4"), ExtResource("2_rvr58"), ExtResource("3_koqkv"), ExtResource("4_uqaf8"), ExtResource("5_da0oi"), ExtResource("6_4yv0w"), ExtResource("7_3lpa5"), ExtResource("8_0d685"), ExtResource("9_ougtq")])

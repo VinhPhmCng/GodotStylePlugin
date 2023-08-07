@@ -1,12 +1,12 @@
 @tool
 extends EditorPlugin
 
+# Following Godot's official tutorial - Making plugins:
+# https://docs.godotengine.org/en/stable/tutorials/plugins/editor/making_plugins.html
 
 const Main := preload("res://addons/godot_style/main.tscn")
 
-
 var main_instance: Control
-
 
 func _enter_tree() -> void:
 	# Initialization of the plugin goes here.

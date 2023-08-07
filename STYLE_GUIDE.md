@@ -174,19 +174,3 @@ func _ready() -> void:
 	area_entered.connect(_on_area_entered)
 	return
 ```
-
-
-# Resources
-
-___
-
-# Contributing to this document
-
-Contributions are welcome, feel free to discuss on the
-[issues](https://github.com/Calinou/godot-style-guide/issues).
-
-# License
-
-Copyright (c) 2015-2017 Hugo Locurcio and contributors
-
-CC0 1.0 Universal, see [LICENSE.md](LICENSE.md).

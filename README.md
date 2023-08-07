@@ -25,7 +25,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/VinhPhmCng/DeStress">
-    <img src="Logos/destress_logo.png" alt="Logo" width="80" height="80">
+    <img src="pictures/logo.png" alt="Logo">
   </a>
 
 <h2 align="center">Godot Style</h3>
@@ -33,7 +33,6 @@
   <p align="center">
     A small Godot addon that provides unofficial style guide in-editor
     <br />
-    <a href="https://github.com/VinhPhmCng/DeStress"><strong>Explore the docs »</strong></a>
     <br />
     <br />
 </p>
@@ -57,31 +56,35 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![Godot Style Screenshot 1](pictures/screenshot_1.PNG)
-
-![Godot Style Screenshot 2](pictures/screenshot_2.PNG)
-
+![Godot Style Screenshot 1](pictures/godot_style.gif)
 
 ### Built With
 
-<p align="left"><a href="https://godotengine.org/"><img src="https://godotengine.org/assets/press/logo_large_color_light.png" width=200></a></p>
+<p align="left"><a href="https://godotengine.org/"><img src="https://godotengine.org/assets/press/logo_large_color_dark.png" width=200></a></p>
 
 
 ### Version: Godot 4.1
 
 - A personal project to learn the powerful Godot Engine
-- Aiming at beginners who want to learn more about Godot's `Resource` 
+- Aiming at: 
+  - Beginners who want to follow a prevalent style guide to develop good practices
+  - Beginners who want to learn more about Godot's `Resource` (explanations are provided as comments in the source code)
 
 
 ### More details
 1. It makes use of `custom resources`, which helps to quickly create new `SectionResources` and `ItemResources`.
 
 2. It's very scuffed lol.
-   - Items can only contain pictures (Texture2D) as a quick and easy alternative - because I haven't a clue how to implement markdown in Godot.
+   - Items can only contain pictures (Texture2D) as a quick and easy alternative - because I haven't a clue how to implement **markdown** in Godot. As a result,
+     - Updating contents frequently can be cumbersome.
+     - Limited capabilities
+     - Resizing the editor will not scale the pictures to maintain visibility -> Have to use scroll bars
     
    - Lacking UI elements helping to add new contents - partly because I want users to interact with the provided custom resources
 
 3. The style guide provided ([STYLE_GUIDE.md](STYLE_GUIDE.md)) is a simplified composition of parts of different [materials](#materials).
+
+4. There are two script templates located in [script_templates](script_templates). To integrate them into your project or editor, please refer to [Creating script templates](https://docs.godotengine.org/en/stable/tutorials/scripting/creating_script_templates.html)
 
 
 ### Customization
@@ -125,12 +128,19 @@
 <!-- MATERIALS -->
 ## Materials
 
+1. [GDScript style guide](https://docs.godotengine.org/en/latest/tutorials/scripting/gdscript/gdscript_styleguide.html)
+2. [GDScript reference](https://docs.godotengine.org/en/latest/tutorials/scripting/gdscript/gdscript_basics.html#doc-gdscript)
+3. [GDQuest' guidelines](https://gdquest.gitbook.io/gdquests-guidelines/godot-gdscript-guidelines)
+4. [Calinou's style guide](https://github.com/Calinou/godot-style-guide)
+5. [emarino135's Reddit thread](https://www.reddit.com/r/godot/comments/yngda3/gdstyle_naming_convention_and_code_order_cheat/)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 <!-- LICENSE -->
 ## License
+MIT © [VinhPC](https://github.com/VinhPhmCng)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
