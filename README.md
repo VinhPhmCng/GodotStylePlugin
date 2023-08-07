@@ -31,7 +31,7 @@
 <h2 align="center">Godot Style</h3>
 
   <p align="center">
-    A small Godot addon that provides unofficial style guide in-editor
+    A small Godot addon that provides unofficial style guide in the editor
     <br />
     <br />
     <br />
@@ -72,7 +72,7 @@
 
 
 ### More details
-1. It makes use of `custom resources`, which helps to quickly create new `SectionResources` and `ItemResources`.
+1. It makes use of `custom Resources`, which helps to quickly create new `SectionResources` and `ItemResources`.
 
 2. It's very scuffed lol.
    - Items can only contain pictures (Texture2D) as a quick and easy alternative - because I haven't a clue how to implement **markdown** in Godot. As a result,
@@ -138,9 +138,20 @@
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
+<!-- CONTRIBUTE -->
+## Contribute
+
+- Any contribution is much appreciated, especially regarding **markdown** integration into Godot.
+
+- I highly recommend beginners who is learning programming in general, or Godot specifically, to make contributions if you want to. For example, you can add more style guide items that you think would help other beginners.
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
 <!-- LICENSE -->
 ## License
-MIT © [VinhPC](https://github.com/VinhPhmCng)
+[MIT License](LICENSE) © [VPC](https://github.com/VinhPhmCng)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
