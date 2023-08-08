@@ -101,16 +101,16 @@
 - In-editor `AssetLib`
   1. Search for `Godot Style` in Godot's in-editor `AssetLib` and press download 
 
-  2. Enable the addon in `Project/Project Settings/Plugins`
+  2. Enable the addon in `Project -> Project Settings -> Plugins`
 
         ![Enabling-addon](pictures/enable_addon.PNG)
 
 - Online
-  1. Dowload the ZIP archive from `link`
+  1. Dowload the ZIP archive from [link](https://godotengine.org/asset-library/asset/2038).
 
   2. Import the folder `godot_style/` into your Godot project's `addons/` folder (Godot v4.1).
 
-  3. Enable the addon in `Project/Project Settings/Plugins`
+  3. Enable the addon in `Project -> Project Settings -> Plugins`
 
 ### Manually
 1. Clone the repo OR download and extract the ZIP archive.
@@ -120,7 +120,7 @@
 
 2. Import the folder `godot_style/` into your Godot project's `addons/` folder (Godot v4.1).
 
-3. Enable the addon in `Project/Project Settings/Plugins`
+3. Enable the addon in `Project -> Project Settings -> Plugins`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
