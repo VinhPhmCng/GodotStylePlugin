@@ -24,7 +24,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/VinhPhmCng/DeStress">
+  <a href="https://github.com/VinhPhmCng/GodotStylePlugin">
     <img src="pictures/logo.png" alt="Logo">
   </a>
 
@@ -47,6 +47,7 @@
     <li><a href="#about-the-project">About The Project</a></li>
     <li><a href="#installation">Installation</a></li>
     <li><a href="#materials">Materials</a></li>
+    <li><a href="#contribute">Contribute</a></li>
     <li><a href="#license">License</a></li>
   </ol>
 </details>
