@@ -1,9 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://c55mpmb6gn0lj"]
+[gd_scene load_steps=5 format=3 uid="uid://c55mpmb6gn0lj"]
 
 [ext_resource type="Script" path="res://addons/godot_style/main.gd" id="1_2nxv4"]
 [ext_resource type="Theme" uid="uid://bnprm4dgmteqb" path="res://addons/godot_style/theme.tres" id="1_t5ltx"]
-[ext_resource type="Resource" uid="uid://b43vjrfxhw1xh" path="res://addons/godot_style/sections/style_guide/style_guide.tres" id="2_r6ndv"]
-[ext_resource type="Resource" uid="uid://godr2s6lryni" path="res://addons/godot_style/sections/others/others.tres" id="3_srw4j"]
 [ext_resource type="Resource" uid="uid://d4nv5i0n3avnc" path="res://addons/godot_style/sections/good_practices/good_practices.tres" id="4_u07di"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_baw0s"]
@@ -20,7 +18,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_t5ltx")
 script = ExtResource("1_2nxv4")
-sections = Array[Resource("res://addons/godot_style/section_resource.gd")]([ExtResource("2_r6ndv"), ExtResource("4_u07di"), ExtResource("3_srw4j")])
+sections = Array[Resource("res://addons/godot_style/section_resource.gd")]([ExtResource("4_u07di")])
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -63,8 +61,9 @@ size_flags_stretch_ratio = 3.0
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Common naming conventions"
+text = "Booleans"
 label_settings = SubResource("LabelSettings_baw0s")
+horizontal_alignment = 1
 vertical_alignment = 1
 text_overrun_behavior = 3
 
@@ -80,7 +79,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Pictures" type="VBoxContainer" parent="HBoxContainer/ItemContent/Control/ScrollContainer"]
+[node name="Contents" type="VBoxContainer" parent="HBoxContainer/ItemContent/Control/ScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3

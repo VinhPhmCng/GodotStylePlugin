@@ -25,16 +25,16 @@
 <br />
 <div align="center">
   <a href="https://github.com/VinhPhmCng/GodotStylePlugin">
-    <img src="pictures/logo.png" alt="Logo">
+	<img src="pictures/logo.png" alt="Logo">
   </a>
 
 <h2 align="center">Godot Style</h3>
 
   <p align="center">
-    A small Godot addon that provides unofficial style guide in the editor
-    <br />
-    <br />
-    <br />
+	A small Godot addon that provides unofficial style guide in the editor
+	<br />
+	<br />
+	<br />
 </p>
 </div>
 
@@ -44,11 +44,11 @@
 <details>
   <summary>Table of Contents</summary>
   <ol>
-    <li><a href="#about-the-project">About The Project</a></li>
-    <li><a href="#installation">Installation</a></li>
-    <li><a href="#materials">Materials</a></li>
-    <li><a href="#contribute">Contribute</a></li>
-    <li><a href="#license">License</a></li>
+	<li><a href="#about-the-project">About The Project</a></li>
+	<li><a href="#installation">Installation</a></li>
+	<li><a href="#materials">Materials</a></li>
+	<li><a href="#contribute">Contribute</a></li>
+	<li><a href="#license">License</a></li>
   </ol>
 </details>
 
@@ -77,10 +77,10 @@
 
 2. It's very scuffed lol.
    - Items can only contain pictures (Texture2D) as a quick and easy alternative - because I haven't a clue how to implement **markdown** in Godot. As a result,
-     - Updating contents frequently can be cumbersome.
-     - Limited capabilities
-     - Resizing the editor will not scale the pictures to maintain visibility -> Have to use scroll bars
-    
+	 - Updating contents frequently can be cumbersome.
+	 - Limited capabilities
+	 - Resizing the editor will not scale the pictures to maintain visibility -> Have to use scroll bars
+	
    - Lacking UI elements helping to add new contents - partly because I want users to interact with the provided custom resources
 
 3. The style guide provided ([STYLE_GUIDE.md](STYLE_GUIDE.md)) is a simplified composition of parts of different [materials](#materials).
@@ -104,7 +104,7 @@
 
   2. Enable the addon in `Project -> Project Settings -> Plugins`
 
-        ![Enabling-addon](pictures/enable_addon.PNG)
+		![Enabling-addon](pictures/enable_addon.PNG)
 
 - Online
   1. Dowload the ZIP archive from [link](https://godotengine.org/asset-library/asset/2038).

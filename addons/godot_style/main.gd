@@ -7,11 +7,23 @@ extends Control
 ## Preloading section.tscn into a PackedScene ready to be instantiated
 const SectionUI := preload("res://addons/godot_style/section.tscn")
 
+## Preloading markdown_implementation.gd as a helper
+## (to keep codes seperate and relevant)
+const Markdown := preload("res://addons/godot_style/markdown/markdown_implementation.gd")
+
+#
+var gdscript_syntax_highlighter: SyntaxHighlighter:
+	set(value):
+		gdscript_syntax_highlighter = value
+		if markdown_helper:
+			printt("main", gdscript_syntax_highlighter)
+			markdown_helper.gdscript_syntax_highlighter = gdscript_syntax_highlighter
+
 ## Sections of type SectionResource to be displayed
 @export var sections: Array[SectionResource]
 
 @onready var sections_container: VBoxContainer = $HBoxContainer/NavigationTrees/SectionsContainer
-
+@onready var markdown_helper := Markdown.new()
 
 func _ready() -> void:
 	# Adding sections to container
@@ -46,21 +58,21 @@ func _on_SectionUI_Tree_item_selected(tree: Tree) -> void:
 			continue
 		tr.deselect_all()
 	
-	%ItemName.text = item.name
+	# Setting content title
+	if item.content_title:
+		%ItemName.text = item.content_title
+	else:
+		%ItemName.text = ""
 	
-	# Deleting existing pictures
-	for child in %Pictures.get_children():
-		%Pictures.remove_child(child)
+	# Deleting existing contents
+	for child in %Contents.get_children():
+		%Contents.remove_child(child)
 		child.queue_free()
 		
-	# Adding new pictures of selected item
-	for picture in item.pictures:
-		var texture_rect := TextureRect.new()
-		texture_rect.expand_mode = TextureRect.EXPAND_KEEP_SIZE
-		texture_rect.stretch_mode = TextureRect.STRETCH_KEEP
-		texture_rect.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		texture_rect.size_flags_vertical = Control.SIZE_EXPAND_FILL
-		
-		texture_rect.texture = picture
-		%Pictures.add_child(texture_rect)
+	# Doesn't need to remove %Content yet
+	
+	# Adding Content of type file_path
+	var viewer := markdown_helper.create_text_file_viewer(item.content_path)
+	if viewer:
+		%Contents.add_child(viewer)
 	return

@@ -12,7 +12,7 @@ Have fun tinkering!
 
 - `pictures/` contains every picture. 
 
-    ![hierarchy](pictures/hierarchy.PNG)
+	![hierarchy](pictures/hierarchy.PNG)
 
 
 ## Adding a new `Section`
@@ -23,11 +23,11 @@ Have fun tinkering!
 4. Double-click on the newly created `SectionResource` -> Its properties appear in the **Inspector** tab.
 5. Change the **Name** & add your `ItemResources`
 6. Finally, add the `SectionResource` to the addon's main scene
-   - Open `godot_style/main.tscn`
-   - In the **Scene** tab, double-click **Main**, which is a **Control** node
-   - In the **Inspector** tab, add your `SectionResource` to the array **Sections**
+	- Open `godot_style/main.tscn`
+	- In the **Scene** tab, double-click **Main**, which is a **Control** node
+	- In the **Inspector** tab, add your `SectionResource` to the array **Sections**
 
-        ![main](pictures/main.PNG)
+		![main](pictures/main.PNG)
 
 >**Note:** Disable and re-enable the addon to trigger any updates (or reload the current project or the game engine)
 
@@ -37,12 +37,12 @@ Have fun tinkering!
 
 1. According to the above hierarchy, create a new folder `sections/any_section/items`
 2. For every new **Item**:
-    - Right-click the folder -> Choose **Create New** -> Choose **Resource**
-    - Search for `ItemResource`, press **Create** and give a file name
-    - Double-click on the newly created `ItemResource` -> Its properties appear in the **Inspector** tab.
-    - Change the **Name** & add your **Pictures**
+	- Right-click the folder -> Choose **Create New** -> Choose **Resource**
+	- Search for `ItemResource`, press **Create** and give a file name
+	- Double-click on the newly created `ItemResource` -> Its properties appear in the **Inspector** tab.
+	- Change the **Name** & add your **Pictures**
 4. Finally, add the `ItemResources` to their corresponding `SectionResource`
-    ![section-resource](pictures/section_resource.PNG)
+	![section-resource](pictures/section_resource.PNG)
 
 >**Note:** Disable and re-enable the addon to trigger any updates (or reload the current project or the game engine)
 

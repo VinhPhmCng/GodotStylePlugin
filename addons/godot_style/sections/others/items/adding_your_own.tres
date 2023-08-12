@@ -1,14 +1,9 @@
-[gd_resource type="Resource" script_class="ItemResource" load_steps=8 format=3 uid="uid://c6l0wlv6up681"]
+[gd_resource type="Resource" script_class="ItemResource" load_steps=2 format=3 uid="uid://c6l0wlv6up681"]
 
-[ext_resource type="Texture2D" uid="uid://ddhioy8sgikpe" path="res://addons/godot_style/sections/others/pictures/adding_your_own_1.PNG" id="1_4vrel"]
 [ext_resource type="Script" path="res://addons/godot_style/item_resource.gd" id="1_k0n4x"]
-[ext_resource type="Texture2D" uid="uid://b2ugf7s5mhqfl" path="res://addons/godot_style/sections/others/pictures/adding_your_own_2.PNG" id="2_me0g0"]
-[ext_resource type="Texture2D" uid="uid://cxah6v4gq71x7" path="res://addons/godot_style/sections/others/pictures/adding_your_own_3.PNG" id="3_avw4g"]
-[ext_resource type="Texture2D" uid="uid://caadu7ovgmk7p" path="res://addons/godot_style/sections/others/pictures/adding_your_own_4.PNG" id="4_dq1l5"]
-[ext_resource type="Texture2D" uid="uid://diu1ap317jptm" path="res://addons/godot_style/sections/others/pictures/adding_your_own_5.PNG" id="5_ajcec"]
-[ext_resource type="Texture2D" uid="uid://c8bats3djms03" path="res://addons/godot_style/sections/others/pictures/adding_your_own_6.PNG" id="6_mq6wm"]
 
 [resource]
 script = ExtResource("1_k0n4x")
 name = "Adding your own"
-pictures = Array[Texture2D]([ExtResource("1_4vrel"), ExtResource("2_me0g0"), ExtResource("3_avw4g"), ExtResource("4_dq1l5"), ExtResource("5_ajcec"), ExtResource("6_mq6wm")])
+content_title = ""
+content_path = ""

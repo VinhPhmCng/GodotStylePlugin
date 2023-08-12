@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://drv4jy36quht5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tpstv"]
+
+[node name="VBoxContainer" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_tpstv")
+text = " TESING OUT TESING OUTTESING OUT TESING OUT  TESING OUTTESING OUT"

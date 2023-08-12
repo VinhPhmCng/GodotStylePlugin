@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cuwp81438m7h3"]
+
+[node name="RichTextLabel" type="RichTextLabel"]
+offset_right = 884.0
+offset_bottom = 413.0
+bbcode_enabled = true
+text = "[ul]item 1
+item 2
+item 3"

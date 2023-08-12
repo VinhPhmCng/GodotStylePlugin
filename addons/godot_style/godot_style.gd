@@ -5,15 +5,19 @@ extends EditorPlugin
 # https://docs.godotengine.org/en/stable/tutorials/plugins/editor/making_plugins.html
 
 const Main := preload("res://addons/godot_style/main.tscn")
+const CustomEditorScript := preload("res://addons/godot_style/markdown/custom_controls/custom_editor_script.gd")
 
 var main_instance: Control
+var custom_editor_script: CustomEditorScript
 
 func _enter_tree() -> void:
 	# Initialization of the plugin goes here.
 	main_instance = Main.instantiate()
-	
 	get_editor_interface().get_editor_main_screen().add_child(main_instance)
 	_make_visible(false)
+	
+	custom_editor_script = CustomEditorScript.new()
+	main_instance.gdscript_syntax_highlighter = custom_editor_script.get_godot_syntax_highlighter()
 	return
 
 
@@ -30,6 +34,10 @@ func _has_main_screen() -> bool:
 func _make_visible(visible: bool) -> void:
 	if main_instance:
 		main_instance.visible = visible
+		printt("godot_style", custom_editor_script.get_godot_syntax_highlighter())
+		main_instance.gdscript_syntax_highlighter = custom_editor_script.get_godot_syntax_highlighter()
+		printt("main_instance", main_instance.gdscript_syntax_highlighter)
+		print()
 	return
 	
 	

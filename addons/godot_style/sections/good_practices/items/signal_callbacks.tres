@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://dd1ihss8ut5me"]
+[gd_resource type="Resource" script_class="ItemResource" load_steps=2 format=3 uid="uid://dd1ihss8ut5me"]
 
 [ext_resource type="Script" path="res://addons/godot_style/item_resource.gd" id="1_gkwqd"]
-[ext_resource type="Texture2D" uid="uid://dko1xolamlucs" path="res://addons/godot_style/sections/good_practices/pictures/signal_callbacks_1.PNG" id="1_ypmw4"]
 
 [resource]
 script = ExtResource("1_gkwqd")
 name = "Signal callbacks"
-pictures = Array[Texture2D]([ExtResource("1_ypmw4")])
+content_title = ""
+content_path = "res://STYLE_GUIDE.md"

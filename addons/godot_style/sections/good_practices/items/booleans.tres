@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://cfou4ctdolpf0"]
+[gd_resource type="Resource" script_class="ItemResource" load_steps=2 format=3 uid="uid://cfou4ctdolpf0"]
 
 [ext_resource type="Script" path="res://addons/godot_style/item_resource.gd" id="1_i88dn"]
-[ext_resource type="Texture2D" uid="uid://dfp1hbjcdpv37" path="res://addons/godot_style/sections/good_practices/pictures/booleans_1.PNG" id="1_lj5on"]
 
 [resource]
 script = ExtResource("1_i88dn")
 name = "Booleans"
-pictures = Array[Texture2D]([ExtResource("1_lj5on")])
+content_title = "Booleans"
+content_path = "res://ADDING_YOUR_OWN.md"
