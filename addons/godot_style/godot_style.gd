@@ -16,8 +16,9 @@ func _enter_tree() -> void:
 	get_editor_interface().get_editor_main_screen().add_child(main_instance)
 	_make_visible(false)
 	
-	custom_editor_script = CustomEditorScript.new()
-	main_instance.gdscript_syntax_highlighter = custom_editor_script.get_godot_syntax_highlighter()
+	if not main_instance.gdscript_syntax_highlighter:
+		custom_editor_script = CustomEditorScript.new()
+		main_instance.gdscript_syntax_highlighter = custom_editor_script.get_godot_syntax_highlighter()
 	return
 
 
@@ -34,6 +35,10 @@ func _has_main_screen() -> bool:
 func _make_visible(visible: bool) -> void:
 	if main_instance:
 		main_instance.visible = visible
+		if visible:
+			if not main_instance.gdscript_syntax_highlighter:
+				custom_editor_script = CustomEditorScript.new()
+				main_instance.gdscript_syntax_highlighter = custom_editor_script.get_godot_syntax_highlighter()
 	return
 	
 	
@@ -48,6 +53,7 @@ func _get_plugin_icon() -> Texture2D:
 # Re-assign the SyntaxHighlighter on editor startups
 # after first-use of the plugin
 func _set_window_layout(configuration: ConfigFile) -> void:
-	custom_editor_script = CustomEditorScript.new()
-	main_instance.gdscript_syntax_highlighter = custom_editor_script.get_godot_syntax_highlighter()
+	if not main_instance.gdscript_syntax_highlighter:
+		custom_editor_script = CustomEditorScript.new()
+		main_instance.gdscript_syntax_highlighter = custom_editor_script.get_godot_syntax_highlighter()
 	return

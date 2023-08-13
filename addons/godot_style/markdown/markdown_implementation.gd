@@ -529,11 +529,18 @@ func _can_be_list(line: String) -> List:
 #__________________ EXTERNAL ___________________#
 #_______________________________________________#
 
+# Handles RichTextLabel's [url] tag
 func _on_MarkdownRTL_meta_clicked(meta) -> void:
 	var path := str(meta)
-	if FileAccess.file_exists(path): # Is in the project
-		OS.shell_open(ProjectSettings.globalize_path(path))
-	else: # Is an external link
-		OS.shell_open(path)
+	var e
 	
+	var dir := DirAccess.open("res://")
+	# Does this work?
+	if dir.file_exists(path): # Is in the project
+		e = OS.shell_open(ProjectSettings.globalize_path(path))
+	else: # Is an external link
+		e = OS.shell_open(path)
+	
+	if not e == OK:
+		push_warning("Cannot open path: " + path + " or " + ProjectSettings.globalize_path(path))
 	return

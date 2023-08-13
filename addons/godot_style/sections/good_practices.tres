@@ -17,5 +17,5 @@ content_path = "res://addons/godot_style/items_md/signal_callbacks.md"
 
 [resource]
 script = ExtResource("1_lvt60")
-name = "Good practices"
+name = "Good Practices"
 items = Array[ExtResource("1_q32sb")]([SubResource("Resource_4jmvx"), SubResource("Resource_no7yp")])

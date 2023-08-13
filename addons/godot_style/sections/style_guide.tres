@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SectionResource" load_steps=13 format=3 uid="uid://2hgekr2g82ej"]
+[gd_resource type="Resource" script_class="SectionResource" load_steps=14 format=3 uid="uid://2hgekr2g82ej"]
 
 [ext_resource type="Script" path="res://addons/godot_style/item_resource.gd" id="1_nonqy"]
 [ext_resource type="Script" path="res://addons/godot_style/section_resource.gd" id="1_u4l1g"]
@@ -63,7 +63,13 @@ name = "Onready variables"
 content_title = "Onready variables"
 content_path = "res://addons/godot_style/items_md/onready_variables.md"
 
+[sub_resource type="Resource" id="Resource_4vd6h"]
+script = ExtResource("1_nonqy")
+name = "All"
+content_title = "All"
+content_path = "res://addons/godot_style/items_md/STYLE_GUIDE.md"
+
 [resource]
 script = ExtResource("1_u4l1g")
-name = "Name"
-items = Array[ExtResource("1_nonqy")]([SubResource("Resource_ijsk4"), SubResource("Resource_p1dxv"), SubResource("Resource_fr6w7"), SubResource("Resource_mtn2w"), SubResource("Resource_11c83"), SubResource("Resource_xtfs7"), SubResource("Resource_cpkmm"), SubResource("Resource_13cj8"), SubResource("Resource_2fukw"), SubResource("Resource_b3dxk")])
+name = "Style Guide"
+items = Array[ExtResource("1_nonqy")]([SubResource("Resource_ijsk4"), SubResource("Resource_p1dxv"), SubResource("Resource_fr6w7"), SubResource("Resource_mtn2w"), SubResource("Resource_11c83"), SubResource("Resource_xtfs7"), SubResource("Resource_cpkmm"), SubResource("Resource_13cj8"), SubResource("Resource_2fukw"), SubResource("Resource_b3dxk"), SubResource("Resource_4vd6h")])

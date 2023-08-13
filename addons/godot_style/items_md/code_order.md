@@ -1,4 +1,4 @@
-- Check [script_templates](script_templates) for GDScript templates that may help you be more organized at the start. To use them, please refer to [this link](https://docs.godotengine.org/en/stable/tutorials/scripting/creating_script_templates.html).
+- Check [script_templates](https://github.com/VinhPhmCng/GodotStylePlugin/tree/main/script_templates) for GDScript templates that may help you be more organized at the start. To use them, please refer to [this link](https://docs.godotengine.org/en/stable/tutorials/scripting/creating_script_templates.html).
  
 ```gdscript
 01. @tool
