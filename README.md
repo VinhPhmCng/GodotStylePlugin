@@ -90,7 +90,7 @@
 
 3. The style guide provided ([STYLE_GUIDE.md](STYLE_GUIDE.md)) is a simplified composition of parts of different [materials](#materials).
 
-4. There are two script templates located in [script_templates](script_templates). To integrate them into your project or editor, please refer to [Creating script templates](https://docs.godotengine.org/en/stable/tutorials/scripting/creating_script_templates.html)
+4. There are two script templates located in [script_templates](script_templates). To integrate them into your project or editor, please refer to [Creating script templates](https://docs.godotengine.org/en/stable/tutorials/scripting/creating_script_templates.html).
 
 
 ### Customization

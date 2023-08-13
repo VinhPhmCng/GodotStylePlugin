@@ -69,23 +69,28 @@
 - A personal project to learn the powerful Godot Engine
 - Aiming at: 
   - Beginners who want to follow a prevalent style guide to develop good practices
-  - Beginners who want to learn more about Godot's `Resource` (explanations are provided as comments in the source code)
+  - Beginners who want to learn more about Godot's `Resource`
 
 
 ### More details
 1. It makes use of `custom Resources`, which helps to quickly create new `SectionResources` and `ItemResources`.
 
 2. It's very scuffed lol.
-   - Items can only contain pictures (Texture2D) as a quick and easy alternative - because I haven't a clue how to implement **markdown** in Godot. As a result,
-	 - Updating contents frequently can be cumbersome.
-	 - Limited capabilities
-	 - Resizing the editor will not scale the pictures to maintain visibility -> Have to use scroll bars
+   - ~~Items can only contain pictures (Texture2D) as a quick and easy alternative - because I haven't a clue how to implement **markdown** in Godot. As a result,~~
+	 - ~~Updating contents frequently can be cumbersome.~~
+	 - ~~Limited capabilities~~
+	 - ~~Resizing the editor will not scale the pictures to maintain visibility -> Have to use scroll bars~~  
 	
+   - Scuffed **Markdown** implementation (Converting to BBCode for `RichTextLabel` and custom `Controls` - using [RegEx](https://docs.godotengine.org/en/stable/classes/class_regex.html))
+     - [x] Most basic and widely used syntax
+     - [ ] Lists (ordered and unordered) - prove difficult because lists in Markdown and BBCode are quite different
+     - [ ] HTML tags - none yet  
+
    - Lacking UI elements helping to add new contents - partly because I want users to interact with the provided custom resources
 
 3. The style guide provided ([STYLE_GUIDE.md](STYLE_GUIDE.md)) is a simplified composition of parts of different [materials](#materials).
 
-4. There are two script templates located in [script_templates](script_templates). To integrate them into your project or editor, please refer to [Creating script templates](https://docs.godotengine.org/en/stable/tutorials/scripting/creating_script_templates.html)
+4. There are two script templates located in [script_templates](script_templates). To integrate them into your project or editor, please refer to [Creating script templates](https://docs.godotengine.org/en/stable/tutorials/scripting/creating_script_templates.html).
 
 
 ### Customization
@@ -142,9 +147,11 @@
 <!-- CONTRIBUTE -->
 ## Contribute
 
-- Any contribution is much appreciated, especially regarding **markdown** integration into Godot.
+- Any contribution is much appreciated, especially regarding **Markdown** integration into Godot.
 
-- I highly recommend beginners who is learning programming in general, or Godot specifically, to make contributions if you want to. For example, you can add more style guide items that you think would help other beginners.
+- I highly recommend beginners who is learning programming in general, or Godot specifically, to make contributions if you'd like to.
+  - For example, you can add more style guide items that you think would help other beginners.
+  - Create PR to improve the addon.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
