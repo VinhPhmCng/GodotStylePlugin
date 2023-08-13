@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="ItemResource" load_steps=2 format=3 uid="uid://dd1ihss8ut5me"]
-
-[ext_resource type="Script" path="res://addons/godot_style/item_resource.gd" id="1_gkwqd"]
-
-[resource]
-script = ExtResource("1_gkwqd")
-name = "Signal callbacks"
-content_title = ""
-content_path = "res://STYLE_GUIDE.md"

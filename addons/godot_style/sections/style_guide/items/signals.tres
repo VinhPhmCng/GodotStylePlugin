@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://cnegbix2y6ftg"]
-
-[ext_resource type="Texture2D" uid="uid://cjoyrxm1msrdy" path="res://addons/godot_style/sections/style_guide/pictures/signals_1.PNG" id="1_0n7x6"]
-[ext_resource type="Script" path="res://addons/godot_style/item_resource.gd" id="1_21omd"]
-
-[resource]
-script = ExtResource("1_21omd")
-name = "Signals"
-pictures = Array[Texture2D]([ExtResource("1_0n7x6")])

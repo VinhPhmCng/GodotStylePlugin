@@ -5,18 +5,17 @@ extends Control
 ## Main UI of the addon
 
 ## Preloading section.tscn into a PackedScene ready to be instantiated
-const SectionUI := preload("res://addons/godot_style/section.tscn")
+const SectionUI := preload("res://addons/godot_style/section_ui.tscn")
 
 ## Preloading markdown_implementation.gd as a helper
 ## (to keep codes seperate and relevant)
 const Markdown := preload("res://addons/godot_style/markdown/markdown_implementation.gd")
 
-#
+## Passing Godot's SyntaxHighlighter to markdown_helper
 var gdscript_syntax_highlighter: SyntaxHighlighter:
 	set(value):
 		gdscript_syntax_highlighter = value
 		if markdown_helper:
-			printt("main", gdscript_syntax_highlighter)
 			markdown_helper.gdscript_syntax_highlighter = gdscript_syntax_highlighter
 
 ## Sections of type SectionResource to be displayed
@@ -28,6 +27,10 @@ var gdscript_syntax_highlighter: SyntaxHighlighter:
 func _ready() -> void:
 	# Adding sections to container
 	for section in sections:
+		if not section:
+			push_warning("Godot Style: Empty SectionResource")
+			continue
+		
 		var section_ui := SectionUI.instantiate()
 		sections_container.add_child(section_ui) ## Ensuring tree is ready
 		
@@ -41,6 +44,10 @@ func _ready() -> void:
 		
 	# Selecting the first item in first run
 	var first_section_ui := sections_container.get_child(0)
+	if not first_section_ui:
+		push_warning("Godot Style: Cannot find any SectionUI")
+		return
+	
 	first_section_ui.tree.set_selected(
 		first_section_ui.tree.get_root().get_first_child(),
 		0

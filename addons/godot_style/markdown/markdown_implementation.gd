@@ -43,15 +43,21 @@ extends Resource
 #____________________ ENUMS ____________________#
 #################################################
 
-
+enum List {
+	NONE,
+	ORDERED,
+	UNORDERED,
+}
 
 
 #################################################
 #__________________ CONSTANTS __________________#
 #################################################
 
+const MarkdownViewer := preload("res://addons/godot_style/markdown/custom_controls/markdown_viewer.tscn")
 const MarkdownRTL := preload("res://addons/godot_style/markdown/custom_controls/markdown_rtl.tscn")
 const CodeBlock := preload("res://addons/godot_style/markdown/custom_controls/code_block.tscn")
+const HeadingSpacer := preload("res://addons/godot_style/markdown/custom_controls/heading_spacer.tscn")
 const LevelOneHeading := preload("res://addons/godot_style/markdown/custom_controls/level_one_heading.tscn")
 const LevelTwoHeading := preload("res://addons/godot_style/markdown/custom_controls/level_two_heading.tscn")
 const LevelThreeHeading := preload("res://addons/godot_style/markdown/custom_controls/level_three_heading.tscn")
@@ -124,7 +130,7 @@ func _ready() -> void:
 func create_text_file_viewer(path: String) -> VBoxContainer:
 	var file := FileAccess.open(path, FileAccess.READ)
 	if not file:
-		push_error("Cannot open file: " + "\"" + path + "\"")
+		push_warning("Godot Style: Cannot open file: " + "\"" + path + "\"")
 		return null
 	var content = file.get_as_text()
 	
@@ -137,20 +143,20 @@ func create_text_file_viewer(path: String) -> VBoxContainer:
 #________________ PRIVATE METHODS ______________#
 #################################################
 
+# Not implemented yet
+# Is this necessary?
 func _create_txt_viewer(content: String) -> VBoxContainer:
 	return
 
 
 func _create_md_viewer(content: String) -> VBoxContainer:
-	var viewer := VBoxContainer.new()
-	# Settings
-	viewer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	viewer.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	var viewer: VBoxContainer = MarkdownViewer.instantiate()
 	
 	# For every line, detect Headings, Quotes and Code Blocks
 	# deal with those
 	# and keep everything in order
 	var lines := content.split("\n")
+#	print(lines)
 	for line in lines: # Looping through every line of content
 		if line.begins_with("```"):
 			if not _is_code_block:
@@ -180,6 +186,12 @@ func _create_md_viewer(content: String) -> VBoxContainer:
 			_add_bbcode_stack(viewer)
 			_add_quote(line.right(-1), viewer)
 			continue
+		# Doesn't support nested quotes
+		# Treat them as normal quotes
+		if line.begins_with(">>"):
+			_add_bbcode_stack(viewer)
+			_add_quote(line.right(-1), viewer)
+			continue
 		_stack_bbcode(line)
 		continue
 	
@@ -196,13 +208,40 @@ func _stack_bbcode(line: String) -> void:
 	return
 
 
+func _clean_bbcode_stack() -> void:
+	var clean: PackedStringArray = []
+	for line in _bbcode_stack:
+		if line == "":
+			continue
+			
+		var regex := RegEx.new()
+		regex.compile("[^\\t\\s]") # If the line contains only \t or \s
+		if not regex.search(line):
+			continue
+		
+		clean.append(line)
+	_bbcode_stack = clean
+	return
+
+
 func _add_bbcode_stack(container: VBoxContainer) -> void:
+	if _bbcode_stack.size() == 0:
+		return
+	# Clean-up - removing empty lines
+	# - lines that only have \t or \s or have nothing
+	_clean_bbcode_stack()
+	if _bbcode_stack.size() == 0:
+		return
+	
+	# New item
 	var rt_label := MarkdownRTL.instantiate()
 	rt_label.text = "\n".join(_bbcode_stack)
 	rt_label.text = _markdown_to_bbcode(rt_label.text)
 	container.add_child(rt_label)
 	
-#	printt(_bbcode_stack, "\n".join(_bbcode_stack))
+	# Handing [url]
+	rt_label.meta_clicked.connect(_on_MarkdownRTL_meta_clicked)
+	
 	_bbcode_stack.clear()
 	return
 
@@ -214,16 +253,25 @@ func _stack_code_block(line: String) -> void:
 
 func _add_code_block(container: VBoxContainer) -> void:
 	var code_block := CodeBlock.instantiate()
-	code_block.set_deferred("text", "\n".join(_code_block_stack))
 	
 	if gdscript_syntax_highlighter:
 		code_block.set_syntax_highlighter(gdscript_syntax_highlighter)
 	else:
-		push_warning("No SyntaxHighlighter")
+		push_warning("Godot Style: No SyntaxHighlighter")
 	
+	code_block.set_deferred("text", "\n".join(_code_block_stack))
 	container.add_child(code_block)
 	
 	_code_block_stack.clear()
+	return
+
+
+func _add_heading_spacer(container: VBoxContainer) -> void:
+	if container.get_child_count() == 0:
+		return
+		
+	var control := HeadingSpacer.instantiate()
+	container.add_child(control)
 	return
 
 
@@ -231,6 +279,8 @@ func _add_heading_1(text: String, container: VBoxContainer) -> void:
 	var label := LevelOneHeading.instantiate()
 	text = _convert_styling(text)
 	label.text = text
+	
+	_add_heading_spacer(container)
 	container.add_child(label)
 	return
 
@@ -239,6 +289,8 @@ func _add_heading_2(text: String, container: VBoxContainer) -> void:
 	var label := LevelTwoHeading.instantiate()
 	text = _convert_styling(text)
 	label.text = text
+	
+	_add_heading_spacer(container)
 	container.add_child(label)
 	return
 	
@@ -247,6 +299,8 @@ func _add_heading_3(text: String, container: VBoxContainer) -> void:
 	var label := LevelThreeHeading.instantiate()
 	text = _convert_styling(text)
 	label.text = text
+	
+	_add_heading_spacer(container)
 	container.add_child(label)
 	return
 
@@ -265,12 +319,8 @@ func _markdown_to_bbcode(md: String) -> String:
 	content = _convert_styling(content)
 	content = _convert_image(content)
 	content = _convert_link(content)
-	content = _convert_unordered_list(content)
-	
-	# Ordered lists
-#	regex.compile("[1-9]+.\\s(?<item>.*)")
-#	content = regex.sub(content, "[ol type=1]${item}[/ol]", true)
-#	content = _convert_ordered_list(content)
+	content = _convert_newline(content)
+#	content = _convert_unordered_list(content)
 	
 	# Indenting
 	for _i in range(5): # I hope nobody indents more than 5 levels lol
@@ -328,12 +378,144 @@ func _convert_indentation(md: String) -> String:
 	return regex.sub(md, "[indent]${text}[/indent]", true)
 
 
+func _convert_newline(md: String) -> String:
+	var regex := RegEx.new()
+	regex.compile("\\s\\s\\n")
+	return regex.sub(md, "\n\n", true)
+
+
 func _convert_styling(md: String) -> String:
 	md = _convert_bolded(md)
 	md = _convert_italics(md)
 	md = _convert_strikethrough(md)
 	md = _convert_inline_code(md)
 	return md
+
+
+#func _find_ordered_lists(md: String) -> void:
+#	var regex := RegEx.new()
+#	regex.compile("([1-9]\\.\\s.*\\n\\t?\\n?)+")
+#	return regex.sub(md, "[indent]${text}[/indent]", true)
+#	return
+
+
+# Unsatisfactory results
+# Put on hold
+func _convert_lists() -> void:
+	var temp_bb_code_stack: PackedStringArray = []
+	var prev_ordered_items: PackedStringArray = []
+	var prev_unordered_items: PackedStringArray = []
+	var deepest_ordered_level: int = 0
+	var deepest_unordered_level: int = 0
+	
+	for _i in range(5): # Five indentation levels
+		prev_ordered_items.append("")
+		prev_unordered_items.append("")
+	
+	# Categorizing lines into lists
+	for line in _bbcode_stack:
+		# Find potential lists
+		var list_type := _can_be_list(line)
+		if list_type == List.NONE:
+			temp_bb_code_stack.append(line)
+			continue
+	
+		# Calculate indentation level
+		var space_level: int = 0
+		for s in line.split("\t"):
+			if s == "": # Is a tab
+				space_level += 4
+			else: # Encountered a character
+				break
+		
+		for s in line.split(" "):
+			if s == "":
+				space_level += 1
+			else:
+				break
+				
+		var tab_level: int = floori(space_level / 4)
+
+		line = line.dedent() # Remove current indentation
+
+		# Adding the opening list tag
+		if list_type == List.ORDERED:
+			deepest_ordered_level = max(deepest_ordered_level, tab_level)
+			line = line.right(-2) # Removing "1." - leaving the space
+			
+			if prev_ordered_items[tab_level] == "": # First ordered item of this indentation level
+				line = "[ol]" + line
+				prev_ordered_items[tab_level] = line
+			else:
+				prev_ordered_items[tab_level] = line
+				
+		elif list_type == List.UNORDERED:
+			deepest_unordered_level = max(deepest_unordered_level, tab_level)
+			line = line.right(-2) # Removing "- "
+			
+			if prev_unordered_items[tab_level] == "": # First unordered item of this indentation level
+				line = "[ul]" + line
+				prev_unordered_items[tab_level] = line
+			else:
+				prev_unordered_items[tab_level] = line
+	
+		temp_bb_code_stack.append(line)
+	
+	# Adding the closing list tag
+	for last_item in prev_ordered_items:
+		if last_item == "":
+			continue
+		var idx := temp_bb_code_stack.rfind(last_item)
+		temp_bb_code_stack[idx] = last_item + "[/ol]"
+		
+	for last_item in prev_unordered_items:
+		if last_item == "":
+			continue
+		var idx := temp_bb_code_stack.rfind(last_item)
+		temp_bb_code_stack[idx] = last_item + "[/ul]"
+		
+	_bbcode_stack = temp_bb_code_stack
+	return
+
+
+func _can_be_list(line: String) -> List:
+	var can_be_ordered := false
+	var can_be_unordered := false
+	var regex := RegEx.new()
+	
+	regex.compile("[1-9]\\.\\s")
+	if regex.search(line, 0, 4):
+		can_be_ordered = true
+		
+	regex.compile("[+*-]\\s")
+	if regex.search(line, 0, 2):
+		can_be_unordered = true
+		
+	if can_be_ordered:
+		return List.ORDERED
+	if can_be_unordered:
+		return List.UNORDERED
+		
+	
+	# Removing all the spacing (\t or \s) at the beginning of the line
+#	regex.compile("[\\s\\t]*(?<line>.*)")
+#	var no_prepend_space := regex.sub(line, "${line}", false) # Only the first occurence
+	var no_prepend_space := line.dedent()
+	
+	# Continue with the same criteria
+	regex.compile("[1-9]\\.\\s") # Note: Number starting the list can only be single-digit
+	if regex.search(no_prepend_space, 0, 3):
+		can_be_ordered = true
+		
+	regex.compile("[+*-]\\s")
+	if regex.search(no_prepend_space, 0, 2):
+		can_be_unordered = true
+	
+	if can_be_ordered:
+		return List.ORDERED
+	if can_be_unordered:
+		return List.UNORDERED
+	return List.NONE
 
 #################################################
 #_______________ SIGNAL CALLBACKS ______________#
@@ -347,4 +529,11 @@ func _convert_styling(md: String) -> String:
 #__________________ EXTERNAL ___________________#
 #_______________________________________________#
 
-
+func _on_MarkdownRTL_meta_clicked(meta) -> void:
+	var path := str(meta)
+	if FileAccess.file_exists(path): # Is in the project
+		OS.shell_open(ProjectSettings.globalize_path(path))
+	else: # Is an external link
+		OS.shell_open(path)
+	
+	return

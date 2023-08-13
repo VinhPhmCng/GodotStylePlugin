@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="SectionResource" load_steps=3 format=3 uid="uid://godr2s6lryni"]
-
-[ext_resource type="Script" path="res://addons/godot_style/section_resource.gd" id="1_fula7"]
-[ext_resource type="Resource" uid="uid://c6l0wlv6up681" path="res://addons/godot_style/sections/others/items/adding_your_own.tres" id="1_nyeiy"]
-
-[resource]
-script = ExtResource("1_fula7")
-name = "Others"
-items = Array[Resource("res://addons/godot_style/item_resource.gd")]([ExtResource("1_nyeiy")])

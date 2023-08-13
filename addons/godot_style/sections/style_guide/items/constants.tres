@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://babwtj3u52ioc"]
-
-[ext_resource type="Texture2D" uid="uid://fxm2kwpryuwy" path="res://addons/godot_style/sections/style_guide/pictures/constants_1.PNG" id="1_sr8qb"]
-[ext_resource type="Script" path="res://addons/godot_style/item_resource.gd" id="1_ydefg"]
-
-[resource]
-script = ExtResource("1_ydefg")
-name = "Constants"
-pictures = Array[Texture2D]([ExtResource("1_sr8qb")])

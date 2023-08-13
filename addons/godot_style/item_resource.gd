@@ -13,9 +13,5 @@ extends Resource
 ## Leave blank if not needed.
 @export var content_title: String = ""
 
-## Pictures of type Texture2D to be displayed when this Item is selected.
-#@export var pictures: Array[Texture2D]
-
-#@export var content: Array[ContentResource]
-
-@export_file("*.txt", "*.md") var content_path: String
+## Markdown file to be displayed.
+@export_file("*.md") var content_path: String

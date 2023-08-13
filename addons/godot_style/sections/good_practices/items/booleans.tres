@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="ItemResource" load_steps=2 format=3 uid="uid://cfou4ctdolpf0"]
-
-[ext_resource type="Script" path="res://addons/godot_style/item_resource.gd" id="1_i88dn"]
-
-[resource]
-script = ExtResource("1_i88dn")
-name = "Booleans"
-content_title = "Booleans"
-content_path = "res://ADDING_YOUR_OWN.md"

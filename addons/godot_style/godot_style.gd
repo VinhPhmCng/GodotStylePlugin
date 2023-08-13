@@ -5,7 +5,7 @@ extends EditorPlugin
 # https://docs.godotengine.org/en/stable/tutorials/plugins/editor/making_plugins.html
 
 const Main := preload("res://addons/godot_style/main.tscn")
-const CustomEditorScript := preload("res://addons/godot_style/markdown/custom_controls/custom_editor_script.gd")
+const CustomEditorScript := preload("res://addons/godot_style/custom_editor_script.gd")
 
 var main_instance: Control
 var custom_editor_script: CustomEditorScript
@@ -34,10 +34,6 @@ func _has_main_screen() -> bool:
 func _make_visible(visible: bool) -> void:
 	if main_instance:
 		main_instance.visible = visible
-		printt("godot_style", custom_editor_script.get_godot_syntax_highlighter())
-		main_instance.gdscript_syntax_highlighter = custom_editor_script.get_godot_syntax_highlighter()
-		printt("main_instance", main_instance.gdscript_syntax_highlighter)
-		print()
 	return
 	
 	
@@ -47,3 +43,11 @@ func _get_plugin_name() -> String:
 	
 func _get_plugin_icon() -> Texture2D:
 	return get_editor_interface().get_base_control().get_theme_icon("Script", "EditorIcons")
+
+
+# Re-assign the SyntaxHighlighter on editor startups
+# after first-use of the plugin
+func _set_window_layout(configuration: ConfigFile) -> void:
+	custom_editor_script = CustomEditorScript.new()
+	main_instance.gdscript_syntax_highlighter = custom_editor_script.get_godot_syntax_highlighter()
+	return

@@ -127,7 +127,7 @@ func do_something(parameter: int) -> void:
 - Prepend a single underscore `_name`
 ```gdscript
 var _counter: int
-var _: float
+var _speed: float
 var name := "John"
 var another_name: String = "Mike"
 ```
