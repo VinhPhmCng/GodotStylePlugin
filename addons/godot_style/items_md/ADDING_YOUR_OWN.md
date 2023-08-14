@@ -50,7 +50,7 @@ Have fun tinkering!
 
 ## Notes
 
-### Disable and re-enable the addon to trigger any updates
+### Disable and re-enable the addon to trigger any **updates**
 
 ![enabling-addon](pictures/enable_addon.PNG)
 

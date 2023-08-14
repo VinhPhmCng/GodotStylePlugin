@@ -16,9 +16,11 @@
 
 4. Quoting code  
 
-5. Links  
+5. Quoting code blocks (GDScript's syntax highlighting is automatically applied)  
 
-6. Images
+6. Links  
+
+7. Images
 
 
 ## Limits - Doesn't support at the moment
