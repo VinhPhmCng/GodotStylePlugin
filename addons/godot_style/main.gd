@@ -82,4 +82,12 @@ func _on_SectionUI_Tree_item_selected(tree: Tree) -> void:
 	var viewer := markdown_helper.create_text_file_viewer(item.content_path)
 	if viewer:
 		%Contents.add_child(viewer)
+		
+		# Updating TextEdits' SyntaxHighlighter
+		# Doesn't work?
+		# Setting the variable doesn't update the individual TextEdits?
+		# Is this because it's an addon?
+		for child in viewer.get_children():
+			if child is TextEdit and gdscript_syntax_highlighter:
+				child.set_syntax_highlighter(gdscript_syntax_highlighter)
 	return

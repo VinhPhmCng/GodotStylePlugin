@@ -31,28 +31,13 @@ extends Resource
 # Using emoji
 # Footnotes
 
-
-#################################################
-#___________________ SIGNALS ___________________#
-#################################################
-
-
-
-
-#################################################
-#____________________ ENUMS ____________________#
-#################################################
-
+# Isn't used - Put on hold
 enum List {
 	NONE,
 	ORDERED,
 	UNORDERED,
 }
 
-
-#################################################
-#__________________ CONSTANTS __________________#
-#################################################
 
 const MarkdownViewer := preload("res://addons/godot_style/markdown/custom_controls/markdown_viewer.tscn")
 const MarkdownRTL := preload("res://addons/godot_style/markdown/custom_controls/markdown_rtl.tscn")
@@ -63,69 +48,22 @@ const LevelTwoHeading := preload("res://addons/godot_style/markdown/custom_contr
 const LevelThreeHeading := preload("res://addons/godot_style/markdown/custom_controls/level_three_heading.tscn")
 const QuoteControl := preload("res://addons/godot_style/markdown/custom_controls/quote.tscn")
 
-# Colors
-# Reference for quick Search and replace all
 const bgcolor_inline_code := "#343942"
 const color_link := "#2c77e3"
 
-#################################################
-#______________ EXPORTED VARIABLES _____________#
-#################################################
-
-
-
-
-#################################################
-#_______________ PUBLIC VARIABLES ______________#
-#################################################
 
 var gdscript_syntax_highlighter: SyntaxHighlighter
 
-
-#################################################
-#_______________ PRIVATE VARIABLES _____________#
-#################################################
 
 var _is_code_block := false
 var _code_block_stack:  PackedStringArray = []
 var _bbcode_stack: PackedStringArray = []
 var _md_viewer: VBoxContainer
 
-#################################################
-#______________ ONREADY VARIABLES ______________#
-#################################################
-
-
-
-
-#################################################
-#___________________ _init() ___________________#
-#################################################
-
-
-#################################################
-#________________ _enter_tree() ________________#
-#################################################
-
-
-#################################################
-#___________________ _ready() __________________#
-#################################################
 
 func _ready() -> void:
 	pass
 
-
-#################################################
-#_______________ VIRTUAL METHODS _______________#
-#################################################
-
-
-
-
-#################################################
-#________________ PUBLIC METHODS _______________#
-#################################################
 
 func create_text_file_viewer(path: String) -> VBoxContainer:
 	var file := FileAccess.open(path, FileAccess.READ)
@@ -138,10 +76,6 @@ func create_text_file_viewer(path: String) -> VBoxContainer:
 		return _create_md_viewer(content)
 	return _create_txt_viewer(content)
 
-
-#################################################
-#________________ PRIVATE METHODS ______________#
-#################################################
 
 # Not implemented yet
 # Is this necessary?
@@ -156,7 +90,6 @@ func _create_md_viewer(content: String) -> VBoxContainer:
 	# deal with those
 	# and keep everything in order
 	var lines := content.split("\n")
-#	print(lines)
 	for line in lines: # Looping through every line of content
 		if line.begins_with("```"):
 			if not _is_code_block:
@@ -239,7 +172,7 @@ func _add_bbcode_stack(container: VBoxContainer) -> void:
 	rt_label.text = _markdown_to_bbcode(rt_label.text)
 	container.add_child(rt_label)
 	
-	# Handing [url]
+	# Handling [url]
 	rt_label.meta_clicked.connect(_on_MarkdownRTL_meta_clicked)
 	
 	_bbcode_stack.clear()
@@ -329,7 +262,7 @@ func _markdown_to_bbcode(md: String) -> String:
 	return content
 
 
-# Regex
+# RegEx
 func _convert_bolded(md: String) -> String:
 	var regex := RegEx.new()
 	regex.compile("\\*\\*(?<bolded>[^*\\n]+?)\\*\\*")
@@ -390,13 +323,6 @@ func _convert_styling(md: String) -> String:
 	md = _convert_strikethrough(md)
 	md = _convert_inline_code(md)
 	return md
-
-
-#func _find_ordered_lists(md: String) -> void:
-#	var regex := RegEx.new()
-#	regex.compile("([1-9]\\.\\s.*\\n\\t?\\n?)+")
-#	return regex.sub(md, "[indent]${text}[/indent]", true)
-#	return
 
 
 # Unsatisfactory results
@@ -517,17 +443,6 @@ func _can_be_list(line: String) -> List:
 		return List.UNORDERED
 	return List.NONE
 
-#################################################
-#_______________ SIGNAL CALLBACKS ______________#
-#################################################
-
-#_______________________________________________#
-#__________________ INTERNAL ___________________#
-#_______________________________________________#
-
-#_______________________________________________#
-#__________________ EXTERNAL ___________________#
-#_______________________________________________#
 
 # Handles RichTextLabel's [url] tag
 func _on_MarkdownRTL_meta_clicked(meta) -> void:

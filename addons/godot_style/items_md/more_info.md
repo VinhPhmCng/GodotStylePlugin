@@ -9,8 +9,8 @@
 1. Headings  
 
 2. Styling text, except:
-    - Subscript
-    - Superscript  
+	- Subscript
+	- Superscript  
   
 3. Quoting text - only one level and doesn't support nesting quotes  
 
