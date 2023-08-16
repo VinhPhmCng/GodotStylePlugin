@@ -2,7 +2,11 @@
 
 Godot Style's [issues](https://github.com/VinhPhmCng/GodotStylePlugin/issues) page
 
-## Existing
+## Open
+
+
+
+## Closed
 
 1. No code highlighting for quoting code blocks ([#2](https://github.com/VinhPhmCng/GodotStylePlugin/issues/2)).  
 
@@ -11,7 +15,3 @@ Godot Style's [issues](https://github.com/VinhPhmCng/GodotStylePlugin/issues) pa
 	![no_script](pictures/no_script.PNG)  
 	
 	- So all you need to do is open any `.gd` file and re-enable the addon.
-
-## Resolved
-
-

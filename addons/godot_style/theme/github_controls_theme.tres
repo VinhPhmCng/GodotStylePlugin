@@ -1,12 +1,15 @@
-[gd_resource type="Theme" load_steps=27 format=3 uid="uid://bnprm4dgmteqb"]
+[gd_resource type="Theme" load_steps=29 format=3 uid="uid://bnprm4dgmteqb"]
 
-[ext_resource type="FontFile" uid="uid://b7nq4h3s5efly" path="res://addons/godot_style/markdown/Noto_Sans/NotoSans-Bold.ttf" id="1_t5ug4"]
-[ext_resource type="FontFile" uid="uid://db2ad2pr5gp55" path="res://addons/godot_style/markdown/Noto_Sans/NotoSans-BoldItalic.ttf" id="2_vn0tc"]
-[ext_resource type="FontFile" uid="uid://cabwwvclnl84t" path="res://addons/godot_style/markdown/Noto_Sans/NotoSans-Italic.ttf" id="3_7k2jw"]
-[ext_resource type="FontFile" uid="uid://bd1lvgva85r7" path="res://addons/godot_style/markdown/Noto_Sans/NotoSans-Medium.ttf" id="4_ms4p8"]
-[ext_resource type="FontFile" uid="uid://bb1rygdt0mbne" path="res://addons/godot_style/markdown/Noto_Sans/NotoSans-Regular.ttf" id="5_nq0h6"]
-[ext_resource type="FontFile" uid="uid://dntpx8mf0p7sx" path="res://addons/godot_style/markdown/Noto_Sans/NotoSans-ExtraBold.ttf" id="6_5yb7y"]
-[ext_resource type="FontFile" uid="uid://klg4oh8bdbi" path="res://addons/godot_style/markdown/Noto_Sans/NotoSans-ExtraBoldItalic.ttf" id="7_dyrr8"]
+[ext_resource type="FontFile" uid="uid://b7nq4h3s5efly" path="res://addons/godot_style/markdown/Noto_Sans/NotoSans-Bold.ttf" id="1_fk2bu"]
+[ext_resource type="FontFile" uid="uid://db2ad2pr5gp55" path="res://addons/godot_style/markdown/Noto_Sans/NotoSans-BoldItalic.ttf" id="2_8b1ym"]
+[ext_resource type="FontFile" uid="uid://cabwwvclnl84t" path="res://addons/godot_style/markdown/Noto_Sans/NotoSans-Italic.ttf" id="3_nrwp0"]
+[ext_resource type="FontFile" uid="uid://bd1lvgva85r7" path="res://addons/godot_style/markdown/Noto_Sans/NotoSans-Medium.ttf" id="4_jbtf8"]
+[ext_resource type="FontFile" uid="uid://bb1rygdt0mbne" path="res://addons/godot_style/markdown/Noto_Sans/NotoSans-Regular.ttf" id="5_r2rgh"]
+[ext_resource type="FontFile" uid="uid://dntpx8mf0p7sx" path="res://addons/godot_style/markdown/Noto_Sans/NotoSans-ExtraBold.ttf" id="6_uo7jp"]
+[ext_resource type="FontFile" uid="uid://klg4oh8bdbi" path="res://addons/godot_style/markdown/Noto_Sans/NotoSans-ExtraBoldItalic.ttf" id="7_x63x7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g05gw"]
+bg_color = Color(0.188235, 0.211765, 0.239216, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e5cul"]
 bg_color = Color(0.788235, 0.788235, 0.788235, 1)
@@ -20,6 +23,8 @@ border_blend = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u83nk"]
 bg_color = Color(0.0509804, 0.0666667, 0.0901961, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ae28k"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8y5e5"]
 
@@ -60,15 +65,19 @@ bg_color = Color(0.0862745, 0.105882, 0.133333, 1)
 bg_color = Color(0.0509804, 0.0666667, 0.0901961, 1)
 
 [resource]
-default_font = ExtResource("5_nq0h6")
+default_font = ExtResource("5_r2rgh")
 default_font_size = 16
+BeginBar/base_type = &"Panel"
+BeginBar/styles/panel = SubResource("StyleBoxFlat_g05gw")
 LabelSectionName/base_type = &"Label"
 LabelSectionName/colors/font_color = Color(1, 1, 1, 1)
 LabelSectionName/colors/font_outline_color = Color(1, 1, 1, 1)
 LabelSectionName/font_sizes/font_size = 18
-LabelSectionName/fonts/font = ExtResource("1_t5ug4")
+LabelSectionName/fonts/font = ExtResource("1_fk2bu")
 LabelSectionName/styles/normal = SubResource("StyleBoxFlat_e5cul")
 Panel/styles/panel = SubResource("StyleBoxFlat_u83nk")
+QuoteBackground/base_type = &"PanelContainer"
+QuoteBackground/styles/panel = SubResource("StyleBoxEmpty_ae28k")
 RTL/base_type = &"RichTextLabel"
 RTL/colors/default_color = Color(0.901961, 0.929412, 0.952941, 1)
 RTL/colors/font_outline_color = Color(0.901961, 0.929412, 0.952941, 1)
@@ -80,11 +89,11 @@ RTL/font_sizes/bold_italics_font_size = 16
 RTL/font_sizes/italics_font_size = 16
 RTL/font_sizes/mono_font_size = 16
 RTL/font_sizes/normal_font_size = 16
-RTL/fonts/bold_font = ExtResource("1_t5ug4")
-RTL/fonts/bold_italics_font = ExtResource("2_vn0tc")
-RTL/fonts/italics_font = ExtResource("3_7k2jw")
-RTL/fonts/mono_font = ExtResource("4_ms4p8")
-RTL/fonts/normal_font = ExtResource("5_nq0h6")
+RTL/fonts/bold_font = ExtResource("1_fk2bu")
+RTL/fonts/bold_italics_font = ExtResource("2_8b1ym")
+RTL/fonts/italics_font = ExtResource("3_nrwp0")
+RTL/fonts/mono_font = ExtResource("4_jbtf8")
+RTL/fonts/normal_font = ExtResource("5_r2rgh")
 RTL/styles/focus = SubResource("StyleBoxEmpty_8y5e5")
 RTL/styles/normal = SubResource("StyleBoxEmpty_rli1g")
 RTLHeadingOne/base_type = &"RichTextLabel"
@@ -98,11 +107,11 @@ RTLHeadingOne/font_sizes/bold_italics_font_size = 30
 RTLHeadingOne/font_sizes/italics_font_size = 30
 RTLHeadingOne/font_sizes/mono_font_size = 30
 RTLHeadingOne/font_sizes/normal_font_size = 30
-RTLHeadingOne/fonts/bold_font = ExtResource("6_5yb7y")
-RTLHeadingOne/fonts/bold_italics_font = ExtResource("7_dyrr8")
-RTLHeadingOne/fonts/italics_font = ExtResource("2_vn0tc")
-RTLHeadingOne/fonts/mono_font = ExtResource("5_nq0h6")
-RTLHeadingOne/fonts/normal_font = ExtResource("1_t5ug4")
+RTLHeadingOne/fonts/bold_font = ExtResource("6_uo7jp")
+RTLHeadingOne/fonts/bold_italics_font = ExtResource("7_x63x7")
+RTLHeadingOne/fonts/italics_font = ExtResource("2_8b1ym")
+RTLHeadingOne/fonts/mono_font = ExtResource("5_r2rgh")
+RTLHeadingOne/fonts/normal_font = ExtResource("1_fk2bu")
 RTLHeadingOne/styles/focus = SubResource("StyleBoxEmpty_q0umc")
 RTLHeadingOne/styles/normal = SubResource("StyleBoxEmpty_kdgje")
 RTLHeadingThree/base_type = &"RichTextLabel"
@@ -116,11 +125,11 @@ RTLHeadingThree/font_sizes/bold_italics_font_size = 18
 RTLHeadingThree/font_sizes/italics_font_size = 18
 RTLHeadingThree/font_sizes/mono_font_size = 18
 RTLHeadingThree/font_sizes/normal_font_size = 18
-RTLHeadingThree/fonts/bold_font = ExtResource("6_5yb7y")
-RTLHeadingThree/fonts/bold_italics_font = ExtResource("7_dyrr8")
-RTLHeadingThree/fonts/italics_font = ExtResource("2_vn0tc")
-RTLHeadingThree/fonts/mono_font = ExtResource("4_ms4p8")
-RTLHeadingThree/fonts/normal_font = ExtResource("1_t5ug4")
+RTLHeadingThree/fonts/bold_font = ExtResource("6_uo7jp")
+RTLHeadingThree/fonts/bold_italics_font = ExtResource("7_x63x7")
+RTLHeadingThree/fonts/italics_font = ExtResource("2_8b1ym")
+RTLHeadingThree/fonts/mono_font = ExtResource("4_jbtf8")
+RTLHeadingThree/fonts/normal_font = ExtResource("1_fk2bu")
 RTLHeadingThree/styles/focus = SubResource("StyleBoxEmpty_s7io0")
 RTLHeadingThree/styles/normal = SubResource("StyleBoxEmpty_43jvn")
 RTLHeadingTwo/base_type = &"RichTextLabel"
@@ -134,11 +143,11 @@ RTLHeadingTwo/font_sizes/bold_italics_font_size = 22
 RTLHeadingTwo/font_sizes/italics_font_size = 22
 RTLHeadingTwo/font_sizes/mono_font_size = 22
 RTLHeadingTwo/font_sizes/normal_font_size = 22
-RTLHeadingTwo/fonts/bold_font = ExtResource("6_5yb7y")
-RTLHeadingTwo/fonts/bold_italics_font = ExtResource("7_dyrr8")
-RTLHeadingTwo/fonts/italics_font = ExtResource("2_vn0tc")
-RTLHeadingTwo/fonts/mono_font = ExtResource("4_ms4p8")
-RTLHeadingTwo/fonts/normal_font = ExtResource("1_t5ug4")
+RTLHeadingTwo/fonts/bold_font = ExtResource("6_uo7jp")
+RTLHeadingTwo/fonts/bold_italics_font = ExtResource("7_x63x7")
+RTLHeadingTwo/fonts/italics_font = ExtResource("2_8b1ym")
+RTLHeadingTwo/fonts/mono_font = ExtResource("4_jbtf8")
+RTLHeadingTwo/fonts/normal_font = ExtResource("1_fk2bu")
 RTLHeadingTwo/styles/focus = SubResource("StyleBoxEmpty_bmmsk")
 RTLHeadingTwo/styles/normal = SubResource("StyleBoxEmpty_2jrfi")
 RTLQuote/base_type = &"RichTextLabel"
@@ -152,11 +161,11 @@ RTLQuote/font_sizes/bold_italics_font_size = 16
 RTLQuote/font_sizes/italics_font_size = 16
 RTLQuote/font_sizes/mono_font_size = 16
 RTLQuote/font_sizes/normal_font_size = 16
-RTLQuote/fonts/bold_font = ExtResource("1_t5ug4")
-RTLQuote/fonts/bold_italics_font = ExtResource("2_vn0tc")
-RTLQuote/fonts/italics_font = ExtResource("3_7k2jw")
-RTLQuote/fonts/mono_font = ExtResource("4_ms4p8")
-RTLQuote/fonts/normal_font = ExtResource("5_nq0h6")
+RTLQuote/fonts/bold_font = ExtResource("1_fk2bu")
+RTLQuote/fonts/bold_italics_font = ExtResource("2_8b1ym")
+RTLQuote/fonts/italics_font = ExtResource("3_nrwp0")
+RTLQuote/fonts/mono_font = ExtResource("4_jbtf8")
+RTLQuote/fonts/normal_font = ExtResource("5_r2rgh")
 RTLQuote/styles/focus = SubResource("StyleBoxEmpty_sl3da")
 RTLQuote/styles/normal = SubResource("StyleBoxEmpty_kyf0u")
 RichTextLabel/colors/default_color = Color(0.901961, 0.929412, 0.952941, 1)
@@ -168,11 +177,11 @@ RichTextLabel/font_sizes/bold_italics_font_size = 16
 RichTextLabel/font_sizes/italics_font_size = 16
 RichTextLabel/font_sizes/mono_font_size = 16
 RichTextLabel/font_sizes/normal_font_size = 16
-RichTextLabel/fonts/bold_font = ExtResource("1_t5ug4")
-RichTextLabel/fonts/bold_italics_font = ExtResource("2_vn0tc")
-RichTextLabel/fonts/italics_font = ExtResource("3_7k2jw")
-RichTextLabel/fonts/mono_font = ExtResource("4_ms4p8")
-RichTextLabel/fonts/normal_font = ExtResource("5_nq0h6")
+RichTextLabel/fonts/bold_font = ExtResource("1_fk2bu")
+RichTextLabel/fonts/bold_italics_font = ExtResource("2_8b1ym")
+RichTextLabel/fonts/italics_font = ExtResource("3_nrwp0")
+RichTextLabel/fonts/mono_font = ExtResource("4_jbtf8")
+RichTextLabel/fonts/normal_font = ExtResource("5_r2rgh")
 RichTextLabel/styles/focus = SubResource("StyleBoxEmpty_jwq7s")
 RichTextLabel/styles/normal = SubResource("StyleBoxEmpty_w2i2x")
 TextEdit/colors/font_color = Color(1, 1, 1, 1)

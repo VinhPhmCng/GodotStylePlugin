@@ -48,21 +48,21 @@ const LevelTwoHeading := preload("res://addons/godot_style/markdown/custom_contr
 const LevelThreeHeading := preload("res://addons/godot_style/markdown/custom_controls/level_three_heading.tscn")
 const QuoteControl := preload("res://addons/godot_style/markdown/custom_controls/quote.tscn")
 
+
+# Default colors - Github theme
+# This is just for quick `replace all`
+const color_inline_code := "#e6edf3"
 const bgcolor_inline_code := "#343942"
 const color_link := "#2c77e3"
 
 
 var gdscript_syntax_highlighter: SyntaxHighlighter
+var markdown_theme: MarkdownTheme
 
 
 var _is_code_block := false
 var _code_block_stack:  PackedStringArray = []
 var _bbcode_stack: PackedStringArray = []
-var _md_viewer: VBoxContainer
-
-
-func _ready() -> void:
-	pass
 
 
 func create_text_file_viewer(path: String) -> VBoxContainer:
@@ -173,7 +173,7 @@ func _add_bbcode_stack(container: VBoxContainer) -> void:
 	container.add_child(rt_label)
 	
 	# Handling [url]
-	rt_label.meta_clicked.connect(_on_MarkdownRTL_meta_clicked)
+	rt_label.meta_clicked.connect(_on_RichTextLabel_meta_clicked)
 	
 	_bbcode_stack.clear()
 	return
@@ -212,7 +212,7 @@ func _add_heading_1(text: String, container: VBoxContainer) -> void:
 	var label := LevelOneHeading.instantiate()
 	text = _convert_styling(text)
 	label.text = text
-	
+	label.meta_clicked.connect(_on_RichTextLabel_meta_clicked)
 	_add_heading_spacer(container)
 	container.add_child(label)
 	return
@@ -222,7 +222,7 @@ func _add_heading_2(text: String, container: VBoxContainer) -> void:
 	var label := LevelTwoHeading.instantiate()
 	text = _convert_styling(text)
 	label.text = text
-	
+	label.meta_clicked.connect(_on_RichTextLabel_meta_clicked)
 	_add_heading_spacer(container)
 	container.add_child(label)
 	return
@@ -232,7 +232,7 @@ func _add_heading_3(text: String, container: VBoxContainer) -> void:
 	var label := LevelThreeHeading.instantiate()
 	text = _convert_styling(text)
 	label.text = text
-	
+	label.meta_clicked.connect(_on_RichTextLabel_meta_clicked)
 	_add_heading_spacer(container)
 	container.add_child(label)
 	return
@@ -243,16 +243,17 @@ func _add_quote(text: String, container: VBoxContainer) -> void:
 	var label := hbox_container.get_node("%Quote")
 	text = _convert_styling(text)
 	label.text = text
+	label.meta_clicked.connect(_on_RichTextLabel_meta_clicked)
 	container.add_child(hbox_container)
 	return
 
 
 func _markdown_to_bbcode(md: String) -> String:
 	var content = md
+	content = _convert_image(content) # Before _convert_link() which is in _convert_styling()
 	content = _convert_styling(content)
-	content = _convert_image(content)
-	content = _convert_link(content)
 	content = _convert_newline(content)
+#	content = _convert_link(content)
 #	content = _convert_unordered_list(content)
 	
 	# Indenting
@@ -280,11 +281,18 @@ func _convert_strikethrough(md: String) -> String:
 	regex.compile("~~(?<strikethrough>[^~\\n]+?)~~")
 	return regex.sub(md, "[s]${strikethrough}[/s]", true)
 
-
+# Github changes the bgcolor
+# VSCode changes the font color
 func _convert_inline_code(md: String) -> String:
 	var regex := RegEx.new()
 	regex.compile("`(?<inline_code>[^`\\n]+?)`")
-	return regex.sub(md, "[bgcolor=#343942][code]${inline_code}[/code][/bgcolor]", true)
+	
+	var replacement := "[bgcolor=#%s][color=#%s][code]${inline_code}[/code][/color][/bgcolor]"
+	var theme_applied := replacement % [
+		markdown_theme.bgcolor_inline_code.to_html(),
+		markdown_theme.color_inline_code.to_html()
+	]
+	return regex.sub(md, theme_applied, true)
 
 
 func _convert_image(md: String) -> String:
@@ -296,7 +304,12 @@ func _convert_image(md: String) -> String:
 func _convert_link(md: String) -> String:
 	var regex := RegEx.new()
 	regex.compile("\\[(?<text>.+?)\\]\\((?<path>.+?)\\)")
-	return regex.sub(md, "[color=#2c77e3][url=${path}]${text}[/url][/color]", true)
+	
+	var replacement := "[color=#%s][url=${path}]${text}[/url][/color]"
+	var theme_applied := replacement % [
+		markdown_theme.color_link.to_html()
+	]
+	return regex.sub(md, theme_applied, true)
 
 
 func _convert_unordered_list(md: String) -> String:
@@ -318,6 +331,7 @@ func _convert_newline(md: String) -> String:
 
 
 func _convert_styling(md: String) -> String:
+	md = _convert_link(md) # Has to be before others
 	md = _convert_bolded(md)
 	md = _convert_italics(md)
 	md = _convert_strikethrough(md)
@@ -445,7 +459,7 @@ func _can_be_list(line: String) -> List:
 
 
 # Handles RichTextLabel's [url] tag
-func _on_MarkdownRTL_meta_clicked(meta) -> void:
+func _on_RichTextLabel_meta_clicked(meta) -> void:
 	var path := str(meta)
 	var e
 	

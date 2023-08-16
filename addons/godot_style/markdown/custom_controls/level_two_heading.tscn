@@ -6,10 +6,12 @@
 offset_right = 352.0
 offset_bottom = 43.0
 size_flags_horizontal = 3
+focus_mode = 2
 theme_type_variation = &"RTLHeadingTwo"
 bbcode_enabled = true
 text = "testing"
 fit_content = true
+selection_enabled = true
 
 [node name="HeadingUnderline" parent="." instance=ExtResource("1_bbvpm")]
 layout_mode = 1

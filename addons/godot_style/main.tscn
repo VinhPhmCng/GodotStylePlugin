@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://c55mpmb6gn0lj"]
+[gd_scene load_steps=8 format=3 uid="uid://c55mpmb6gn0lj"]
 
 [ext_resource type="Script" path="res://addons/godot_style/main.gd" id="1_2nxv4"]
-[ext_resource type="Theme" uid="uid://bnprm4dgmteqb" path="res://addons/godot_style/theme.tres" id="1_t5ltx"]
+[ext_resource type="Theme" uid="uid://bnprm4dgmteqb" path="res://addons/godot_style/theme/github_controls_theme.tres" id="1_f81d1"]
 [ext_resource type="Resource" uid="uid://2hgekr2g82ej" path="res://addons/godot_style/sections/style_guide.tres" id="3_7knle"]
 [ext_resource type="Resource" uid="uid://bh8yjhfgb8tpj" path="res://addons/godot_style/sections/good_practices.tres" id="4_po8yr"]
 [ext_resource type="Resource" uid="uid://c7b7qxel3x0ar" path="res://addons/godot_style/sections/others.tres" id="5_c0n0x"]
+[ext_resource type="Resource" uid="uid://doo1thg0lcsoy" path="res://addons/godot_style/theme/github_theme.tres" id="6_0isxh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_baw0s"]
 font_size = 28
@@ -18,9 +19,10 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("1_t5ltx")
+theme = ExtResource("1_f81d1")
 script = ExtResource("1_2nxv4")
 sections = Array[Resource("res://addons/godot_style/section_resource.gd")]([ExtResource("3_7knle"), ExtResource("4_po8yr"), ExtResource("5_c0n0x")])
+markdown_theme = ExtResource("6_0isxh")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -97,6 +99,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+focus_mode = 1
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 15

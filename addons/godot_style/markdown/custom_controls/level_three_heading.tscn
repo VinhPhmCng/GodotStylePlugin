@@ -4,7 +4,9 @@
 offset_right = 242.0
 offset_bottom = 38.0
 size_flags_horizontal = 3
+focus_mode = 2
 theme_type_variation = &"RTLHeadingThree"
 bbcode_enabled = true
 text = "testing"
 fit_content = true
+selection_enabled = true

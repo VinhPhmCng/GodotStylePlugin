@@ -20,11 +20,15 @@ var gdscript_syntax_highlighter: SyntaxHighlighter:
 
 ## Sections of type SectionResource to be displayed
 @export var sections: Array[SectionResource]
+@export var markdown_theme: MarkdownTheme
 
 @onready var sections_container: VBoxContainer = $HBoxContainer/NavigationTrees/SectionsContainer
 @onready var markdown_helper := Markdown.new()
 
 func _ready() -> void:
+	# Apply custom controls' theme
+	set_theme(markdown_theme.controls_theme)
+	
 	# Adding sections to container
 	for section in sections:
 		if not section:
@@ -76,7 +80,8 @@ func _on_SectionUI_Tree_item_selected(tree: Tree) -> void:
 		%Contents.remove_child(child)
 		child.queue_free()
 		
-	# Doesn't need to remove %Content yet
+	# Markdown theme (setting colors to BBCode tags)
+	markdown_helper.markdown_theme = markdown_theme
 	
 	# Adding Content of type file_path
 	var viewer := markdown_helper.create_text_file_viewer(item.content_path)

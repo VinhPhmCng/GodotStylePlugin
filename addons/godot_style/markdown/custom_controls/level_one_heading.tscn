@@ -6,10 +6,12 @@
 offset_right = 355.0
 offset_bottom = 47.0
 size_flags_horizontal = 3
+focus_mode = 2
 theme_type_variation = &"RTLHeadingOne"
 bbcode_enabled = true
 text = "testing [b]bold[/b]"
 fit_content = true
+selection_enabled = true
 
 [node name="HeadingUnderline" parent="." instance=ExtResource("1_j28ro")]
 layout_mode = 1

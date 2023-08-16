@@ -5,7 +5,7 @@ This is an how you can add your own `SectionResources` and `ItemResources` to th
 Have fun tinkering!
 
 
-## Adding a new `Section`
+## Adding a new `Section` 
 
 1. Right-click on a directory -> Choose **Create New** -> Choose **Resource**  
    

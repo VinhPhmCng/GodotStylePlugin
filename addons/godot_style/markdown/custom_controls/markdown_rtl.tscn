@@ -4,5 +4,7 @@
 offset_right = 356.0
 offset_bottom = 62.0
 size_flags_horizontal = 3
+focus_mode = 2
 bbcode_enabled = true
 fit_content = true
+selection_enabled = true
