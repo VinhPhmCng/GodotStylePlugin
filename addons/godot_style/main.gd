@@ -18,9 +18,18 @@ var gdscript_syntax_highlighter: SyntaxHighlighter:
 		if markdown_helper:
 			markdown_helper.gdscript_syntax_highlighter = gdscript_syntax_highlighter
 
+var _selected_section_ui_tree: Tree = null
+
 ## Sections of type SectionResource to be displayed
 @export var sections: Array[SectionResource]
-@export var markdown_theme: MarkdownTheme
+@export var markdown_theme: MarkdownTheme:
+	set(new):
+		markdown_theme = new
+		set_theme(markdown_theme.controls_theme)
+		# Re-select TreeItem to update custom theme
+		if _selected_section_ui_tree:
+			_selected_section_ui_tree.set_selected(_selected_section_ui_tree.get_selected(), 0)
+		
 
 @onready var sections_container: VBoxContainer = $HBoxContainer/NavigationTrees/SectionsContainer
 @onready var markdown_helper := Markdown.new()
@@ -59,7 +68,16 @@ func _ready() -> void:
 	return
 
 
+func _shortcut_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed:
+		if OS.get_keycode_string(event.get_key_label_with_modifiers()) == "Ctrl+T":
+			%ThemePopup.visible = not %ThemePopup.visible
+			get_viewport().set_input_as_handled()
+	return
+
+
 func _on_SectionUI_Tree_item_selected(tree: Tree) -> void:
+	_selected_section_ui_tree = tree
 	var selected_tree_item: TreeItem = tree.get_selected()
 	var item: ItemResource = selected_tree_item.get_metadata(0) # This was set in the display() function
 	
@@ -87,4 +105,17 @@ func _on_SectionUI_Tree_item_selected(tree: Tree) -> void:
 	var viewer := markdown_helper.create_text_file_viewer(item.content_path)
 	if viewer:
 		%Contents.add_child(viewer)
+	return
+
+
+func _on_ThemeButton_item_selected(index: int) -> void:
+	match index:
+		0:
+			markdown_theme = preload("res://addons/godot_style/theme/github_theme.tres")
+		1:
+			markdown_theme = preload("res://addons/godot_style/theme/vscode_theme.tres")
+		_:
+			markdown_theme = preload("res://addons/godot_style/theme/github_theme.tres")
+	
+	%ThemePopup.hide()
 	return

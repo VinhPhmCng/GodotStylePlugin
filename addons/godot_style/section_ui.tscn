@@ -20,6 +20,7 @@ text_overrun_behavior = 3
 [node name="Tree" type="Tree" parent="."]
 layout_mode = 2
 size_flags_vertical = 3
+allow_reselect = true
 hide_root = true
 scroll_horizontal_enabled = false
 scroll_vertical_enabled = false

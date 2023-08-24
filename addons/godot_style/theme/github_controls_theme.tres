@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=29 format=3 uid="uid://bnprm4dgmteqb"]
+[gd_resource type="Theme" load_steps=31 format=3 uid="uid://bnprm4dgmteqb"]
 
 [ext_resource type="FontFile" uid="uid://b7nq4h3s5efly" path="res://addons/godot_style/markdown/Noto_Sans/NotoSans-Bold.ttf" id="1_fk2bu"]
 [ext_resource type="FontFile" uid="uid://db2ad2pr5gp55" path="res://addons/godot_style/markdown/Noto_Sans/NotoSans-BoldItalic.ttf" id="2_8b1ym"]
@@ -23,6 +23,17 @@ border_blend = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u83nk"]
 bg_color = Color(0.0509804, 0.0666667, 0.0901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fj2i"]
+bg_color = Color(0.298039, 0.321569, 0.368627, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_okyod"]
+bg_color = Color(0.211765, 0.239216, 0.290196, 1)
+border_width_left = 2
+border_width_top = 1
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.298039, 0.321569, 0.368627, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ae28k"]
 
@@ -76,6 +87,11 @@ LabelSectionName/font_sizes/font_size = 18
 LabelSectionName/fonts/font = ExtResource("1_fk2bu")
 LabelSectionName/styles/normal = SubResource("StyleBoxFlat_e5cul")
 Panel/styles/panel = SubResource("StyleBoxFlat_u83nk")
+PopupMenu/constants/v_separation = 10
+PopupMenu/font_sizes/font_size = 18
+PopupMenu/fonts/font = ExtResource("5_r2rgh")
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_2fj2i")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_okyod")
 QuoteBackground/base_type = &"PanelContainer"
 QuoteBackground/styles/panel = SubResource("StyleBoxEmpty_ae28k")
 RTL/base_type = &"RichTextLabel"
