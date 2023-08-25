@@ -1,26 +1,39 @@
-# More information
+# Regarding this addon's Markdown implementation
 
 - Please refer to Github's [Basic writing and formatting syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-- Regarding this addon's implementation of **Markdown**
 
 ## Supports
 
 1. Headings  
 
-2. Styling text, except:
+2. Styling text, **except**:
 	- Subscript
 	- Superscript  
   
-3. Quoting text - only one level and doesn't support nesting quotes  
+3. Quoting text - one level only and doesn't support nesting quotes  
 
 4. Quoting code  
 
-5. Quoting code blocks (GDScript's syntax highlighting is automatically applied)  
+5. Quoting code blocks
+	- No specification of language needed because GDScript's syntax highlighting is automatically applied.  
+```
+# YES
+# ```
+# var test: int = 0
+# ```
 
+# NO
+# ```gdscript
+# var test: int = 0
+# ```
+```
+	
 6. Links  
 
-7. Images
+7. Images  
+
+8. New-line
+	- To add a new-line, end the previous line with two spaces.
 
 
 ## Limits - Doesn't support at the moment
