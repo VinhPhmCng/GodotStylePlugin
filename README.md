@@ -25,7 +25,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/VinhPhmCng/GodotStylePlugin">
-	<img src="pictures/logo.png" alt="Logo">
+	<img src="addons/godot_style/pictures/logo.png" alt="Logo">
   </a>
 
 <h2 align="center">Godot Style</h3>
