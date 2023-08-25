@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djng80m2fu6wd"
-path="res://.godot/imported/hierarchy.PNG-9b2ff5a287fcd2aa32b9b3a98d46dde7.ctex"
+uid="uid://dxaw76fjcnje2"
+path="res://.godot/imported/add_section.PNG-9bc5070994f3ba79026ba60c92881e2e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://pictures/hierarchy.PNG"
-dest_files=["res://.godot/imported/hierarchy.PNG-9b2ff5a287fcd2aa32b9b3a98d46dde7.ctex"]
+source_file="res://addons/godot_style/pictures/add_section.PNG"
+dest_files=["res://.godot/imported/add_section.PNG-9bc5070994f3ba79026ba60c92881e2e.ctex"]
 
 [params]
 

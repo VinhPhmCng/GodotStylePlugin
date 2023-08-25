@@ -57,7 +57,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![Godot Style Screenshot 1](pictures/godot_style.gif)
+![Godot Style Screenshot 1](addons/godot_style/pictures/godot_style.gif)
 
 ### Built With
 
@@ -109,7 +109,7 @@
 
   2. Enable the addon in `Project -> Project Settings -> Plugins`
 
-		![Enabling-addon](pictures/enable_addon.PNG)
+		![Enabling-addon](addons/godot_style/pictures/enable_addon.PNG)
 
 - Online
   1. Dowload the ZIP archive from [link](https://godotengine.org/asset-library/asset/2038).
