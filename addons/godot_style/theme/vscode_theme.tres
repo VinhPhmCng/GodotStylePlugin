@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_x1tgv")
+name = "VSCode"
 color_inline_code = Color(0.843137, 0.729412, 0.490196, 1)
 bgcolor_inline_code = Color(0, 0, 0, 0)
 color_link = Color(0.203922, 0.52549, 0.882353, 1)

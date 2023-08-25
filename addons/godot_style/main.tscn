@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c55mpmb6gn0lj"]
+[gd_scene load_steps=22 format=3 uid="uid://c55mpmb6gn0lj"]
 
 [ext_resource type="Script" path="res://addons/godot_style/main.gd" id="1_2nxv4"]
 [ext_resource type="Theme" uid="uid://bnprm4dgmteqb" path="res://addons/godot_style/theme/github_controls_theme.tres" id="1_f81d1"]
@@ -6,7 +6,29 @@
 [ext_resource type="Resource" uid="uid://bh8yjhfgb8tpj" path="res://addons/godot_style/sections/good_practices.tres" id="4_po8yr"]
 [ext_resource type="Resource" uid="uid://c7b7qxel3x0ar" path="res://addons/godot_style/sections/others.tres" id="5_c0n0x"]
 [ext_resource type="Resource" uid="uid://doo1thg0lcsoy" path="res://addons/godot_style/theme/github_theme.tres" id="6_0isxh"]
+[ext_resource type="Script" path="res://addons/godot_style/item_resource.gd" id="6_d00jy"]
 [ext_resource type="FontFile" uid="uid://bb1rygdt0mbne" path="res://addons/godot_style/markdown/Noto_Sans/NotoSans-Regular.ttf" id="7_edek1"]
+[ext_resource type="Script" path="res://addons/godot_style/section_resource.gd" id="7_hb50h"]
+[ext_resource type="Resource" uid="uid://008bicq434au" path="res://addons/godot_style/theme/vscode_theme.tres" id="7_oq1og"]
+[ext_resource type="Script" path="res://addons/godot_style/theme/markdown_theme.gd" id="8_ii3ls"]
+
+[sub_resource type="Resource" id="Resource_fayqq"]
+script = ExtResource("6_d00jy")
+name = "TEST"
+content_title = "TEST"
+content_path = "res://addons/godot_style/items_md/good_practices/file_name.md"
+
+[sub_resource type="Resource" id="Resource_rkov1"]
+script = ExtResource("7_hb50h")
+name = "TEST"
+items = Array[ExtResource("6_d00jy")]([SubResource("Resource_fayqq")])
+
+[sub_resource type="Resource" id="Resource_knrx6"]
+script = ExtResource("8_ii3ls")
+name = "test"
+color_inline_code = Color(0, 0, 0, 1)
+bgcolor_inline_code = Color(0, 0, 0, 1)
+color_link = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_baw0s"]
 font_size = 28
@@ -69,8 +91,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_f81d1")
 script = ExtResource("1_2nxv4")
-sections = Array[Resource("res://addons/godot_style/section_resource.gd")]([ExtResource("3_7knle"), ExtResource("4_po8yr"), ExtResource("5_c0n0x")])
-markdown_theme = ExtResource("6_0isxh")
+sections = Array[ExtResource("7_hb50h")]([ExtResource("3_7knle"), ExtResource("4_po8yr"), ExtResource("5_c0n0x"), SubResource("Resource_rkov1")])
+markdown_themes = Array[ExtResource("8_ii3ls")]([ExtResource("6_0isxh"), ExtResource("7_oq1og"), SubResource("Resource_knrx6")])
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1

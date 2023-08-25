@@ -1,4 +1,4 @@
-- Update Sections and Items: **CTRL+R**  
+- Update Items: **CTRL+R**  
 
 - Addon's theme: **CTRL+T**  
 

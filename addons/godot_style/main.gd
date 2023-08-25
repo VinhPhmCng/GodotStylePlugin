@@ -23,8 +23,11 @@ var _selected_section_ui_tree: Tree = null
 ## Sections of type SectionResource to be displayed
 @export var sections: Array[SectionResource]
 
+## The first one will be default
+@export var markdown_themes: Array[MarkdownTheme] = []
+
 ## MarkdownTheme resource - affecting this addon's custom controls and BBCode tags (color, bgcolor, etc.)
-@export var markdown_theme: MarkdownTheme:
+var markdown_theme: MarkdownTheme:
 	set(new):
 		markdown_theme = new
 		set_theme(markdown_theme.controls_theme)
@@ -35,8 +38,12 @@ var _selected_section_ui_tree: Tree = null
 
 @onready var sections_container: VBoxContainer = $HBoxContainer/NavigationTrees/SectionsContainer
 @onready var markdown_helper := Markdown.new()
+@onready var theme_button: OptionButton = $ThemePopup/ThemeButton
 
 func _ready() -> void:
+	_update_ThemeButton()
+	markdown_theme = markdown_themes[0] # Must set a MarkdownTheme before _update()
+	
 	_update()
 	return
 
@@ -48,7 +55,9 @@ func _shortcut_input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 			
 		if OS.get_keycode_string(event.get_key_label_with_modifiers()) == "Ctrl+R":
-			_update()
+				_update_ThemeButton()
+				markdown_theme = markdown_themes[0]
+				_update()
 	return
 
 
@@ -91,6 +100,18 @@ func _update() -> void:
 	return
 
 
+func _update_ThemeButton() -> void:
+	theme_button.clear()
+	
+	for res in markdown_themes:
+		if not res:
+			return
+		
+		var text := "  " + res.name + "  " 
+		theme_button.add_item(text)
+	return
+
+
 func _on_SectionUI_Tree_item_selected(tree: Tree) -> void:
 	_selected_section_ui_tree = tree
 	var selected_tree_item: TreeItem = tree.get_selected()
@@ -124,13 +145,6 @@ func _on_SectionUI_Tree_item_selected(tree: Tree) -> void:
 
 
 func _on_ThemeButton_item_selected(index: int) -> void:
-	match index:
-		0:
-			markdown_theme = preload("res://addons/godot_style/theme/github_theme.tres")
-		1:
-			markdown_theme = preload("res://addons/godot_style/theme/vscode_theme.tres")
-		_:
-			markdown_theme = preload("res://addons/godot_style/theme/github_theme.tres")
-	
+	markdown_theme = markdown_themes[index]
 	%ThemePopup.hide()
 	return

@@ -26,7 +26,7 @@ Have fun tinkering!
 
 		![main](addons/godot_style/pictures/main.PNG)
 
->**Note:** To trigger any update, use the shortcut CTRL+R on the Style tab **OR** disable and re-enable the addon (or reload the current project or the game engine)
+>**Note:** To trigger update, disable and re-enable the addon (or reload the current project or the game engine).
 
 
 
@@ -45,15 +45,12 @@ Have fun tinkering!
 6. Finally, add the `ItemResource` to its corresponding `SectionResource`
 	![add_item](addons/godot_style/pictures/add_item.PNG)
 
->**Note:** To trigger any update, use the shortcut CTRL+R on the Style tab **OR** disable and re-enable the addon (or reload the current project or the game engine)
+>**Note:** To trigger update, use the shortcut CTRL+R on the Style tab **OR** disable and re-enable the addon (or reload the current project or the game engine).
 
 
 ## Notes
 
-### To trigger any update, either:
-- Use the shortcut CTRL+R on the Style tab  
-
-- Disable and re-enable the addon (or reload the current project or the game engine)
+### To trigger any update, disable and re-enable the addon (or reload the current project or the game engine).
 
 ![enabling-addon](addons/godot_style/pictures/enable_addon.PNG)
 
