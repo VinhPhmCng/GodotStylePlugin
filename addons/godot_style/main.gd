@@ -22,6 +22,8 @@ var _selected_section_ui_tree: Tree = null
 
 ## Sections of type SectionResource to be displayed
 @export var sections: Array[SectionResource]
+
+## MarkdownTheme resource - affecting this addon's custom controls and BBCode tags (color, bgcolor, etc.)
 @export var markdown_theme: MarkdownTheme:
 	set(new):
 		markdown_theme = new

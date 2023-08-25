@@ -42,7 +42,7 @@ Have fun tinkering!
 
 5. Locate your Markdown file `file_name.md` in **Content Path**  
 
-6. Finally, add the `ItemResources` to their corresponding `SectionResource`
+6. Finally, add the `ItemResource` to its corresponding `SectionResource`
 	![add_item](pictures/add_item.PNG)
 
 >**Note:** Disable and re-enable the addon to trigger any updates (or reload the current project or the game engine)

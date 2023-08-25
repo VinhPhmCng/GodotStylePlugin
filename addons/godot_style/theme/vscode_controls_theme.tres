@@ -62,13 +62,25 @@ bg_color = Color(0.188235, 0.192157, 0.172549, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w2i2x"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qxhcx"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vcwm7"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
 bg_color = Color(0.105882, 0.109804, 0.0941176, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o3lds"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
 bg_color = Color(0.105882, 0.109804, 0.0941176, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uqojd"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2bbl"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
 bg_color = Color(0.105882, 0.109804, 0.0941176, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yy668"]
@@ -207,9 +219,9 @@ TextEdit/colors/font_outline_color = Color(1, 1, 1, 1)
 TextEdit/colors/font_readonly_color = Color(1, 1, 1, 1)
 TextEdit/colors/font_selected_color = Color(1, 1, 1, 1)
 TextEdit/colors/selection_color = Color(0.0313726, 0.396078, 0.827451, 1)
-TextEdit/styles/focus = SubResource("StyleBoxFlat_qxhcx")
+TextEdit/styles/focus = SubResource("StyleBoxFlat_vcwm7")
 TextEdit/styles/normal = SubResource("StyleBoxFlat_o3lds")
-TextEdit/styles/read_only = SubResource("StyleBoxFlat_uqojd")
+TextEdit/styles/read_only = SubResource("StyleBoxFlat_i2bbl")
 Tree/colors/children_hl_line_color = Color(1, 1, 1, 1)
 Tree/styles/focus = SubResource("StyleBoxEmpty_yy668")
 Tree/styles/panel = SubResource("StyleBoxFlat_aipcg")

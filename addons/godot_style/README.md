@@ -151,7 +151,7 @@
 
 - I highly recommend beginners who is learning programming in general, or Godot specifically, to make contributions if you'd like to.
   - For example, you can add more style guide items that you think would help other beginners.
-  - Create PR to improve the addon.
+  - Open PR to improve the addon.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

@@ -7,19 +7,19 @@
 script = ExtResource("1_iw74d")
 name = "Adding your own"
 content_title = "Adding your own"
-content_path = "res://addons/godot_style/items_md/ADDING_YOUR_OWN.md"
+content_path = "res://addons/godot_style/items_md/others/ADDING_YOUR_OWN.md"
 
 [sub_resource type="Resource" id="Resource_hcsuu"]
 script = ExtResource("1_iw74d")
 name = "More info"
 content_title = "More info"
-content_path = "res://addons/godot_style/items_md/more_info.md"
+content_path = "res://addons/godot_style/items_md/others/more_info.md"
 
 [sub_resource type="Resource" id="Resource_cg2df"]
 script = ExtResource("1_iw74d")
 name = "Issues"
 content_title = "Issues"
-content_path = "res://addons/godot_style/items_md/issues.md"
+content_path = "res://addons/godot_style/items_md/others/issues.md"
 
 [resource]
 script = ExtResource("1_44y3e")
