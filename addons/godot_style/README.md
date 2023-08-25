@@ -82,9 +82,9 @@
 	 - ~~Resizing the editor will not scale the pictures to maintain visibility -> Have to use scroll bars~~  
 	
    - Scuffed **Markdown** implementation (Converting to BBCode for `RichTextLabel` and custom `Controls` - using [RegEx](https://docs.godotengine.org/en/stable/classes/class_regex.html))
-     - [x] Most basic and widely used syntax
-     - [ ] Lists (ordered and unordered) - prove difficult because lists in Markdown and BBCode are quite different
-     - [ ] HTML tags - none yet  
+	 - [x] Most basic and widely used syntax
+	 - [ ] Lists (ordered and unordered) - prove difficult because lists in Markdown and BBCode are quite different
+	 - [ ] HTML tags - none yet  
 
    - Lacking UI elements helping to add new contents - partly because I want users to interact with the provided custom resources
 
@@ -139,6 +139,7 @@
 3. [GDQuest' guidelines](https://gdquest.gitbook.io/gdquests-guidelines/godot-gdscript-guidelines)
 4. [Calinou's style guide](https://github.com/Calinou/godot-style-guide)
 5. [emarino135's Reddit thread](https://www.reddit.com/r/godot/comments/yngda3/gdstyle_naming_convention_and_code_order_cheat/)
+6. [sepTN's post](https://godot.community/topic/27/gdscript-coding-conventions-best-practices-for-readable-and-maintainable-code)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
