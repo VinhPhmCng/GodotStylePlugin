@@ -37,8 +37,26 @@ var _selected_section_ui_tree: Tree = null
 @onready var markdown_helper := Markdown.new()
 
 func _ready() -> void:
-	# Apply custom controls' theme
-	set_theme(markdown_theme.controls_theme)
+	_update()
+	return
+
+
+func _shortcut_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed:
+		if OS.get_keycode_string(event.get_key_label_with_modifiers()) == "Ctrl+T":
+			%ThemePopup.visible = not %ThemePopup.visible
+			get_viewport().set_input_as_handled()
+			
+		if OS.get_keycode_string(event.get_key_label_with_modifiers()) == "Ctrl+R":
+			_update()
+	return
+
+
+func _update() -> void:
+	# Deletion
+	for child in sections_container.get_children():
+		sections_container.remove_child(child)
+		child.queue_free()
 	
 	# Adding sections to container
 	for section in sections:
@@ -57,7 +75,7 @@ func _ready() -> void:
 		section_ui.tree.add_to_group("trees")
 		section_ui.display(section)
 		
-	# Selecting the first item in first run
+	# Selecting the first item
 	var first_section_ui := sections_container.get_child(0)
 	if not first_section_ui:
 		push_warning("Godot Style: Cannot find any SectionUI")
@@ -67,14 +85,9 @@ func _ready() -> void:
 		first_section_ui.tree.get_root().get_first_child(),
 		0
 	)
-	return
-
-
-func _shortcut_input(event: InputEvent) -> void:
-	if event is InputEventKey and event.pressed:
-		if OS.get_keycode_string(event.get_key_label_with_modifiers()) == "Ctrl+T":
-			%ThemePopup.visible = not %ThemePopup.visible
-			get_viewport().set_input_as_handled()
+	
+	# Apply custom controls' theme
+	set_theme(markdown_theme.controls_theme)
 	return
 
 
